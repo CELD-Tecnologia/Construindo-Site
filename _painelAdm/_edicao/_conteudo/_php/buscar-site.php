@@ -41,6 +41,11 @@
             $setorImagem = ' idSetorImagem IN(3, 4, 5) ';
             break;
 
+            case 4: //Quem Somos
+                $dadosSite = '*';
+                $setorImagem = ' idSetorImagem IN(3, 4, 5) ';
+                break;
+
         case 5: //Galeria
             $dadosSite = 'idSite';
             $setorImagem = ' idSetorImagem = 7 ';
