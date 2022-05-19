@@ -1,13 +1,15 @@
 <?php
+//Aqui precisa fazer as seguintes alterações:
+
+
 session_start();
-include_once("../../../_php/conexao.php"); 
+include_once("../../../../_php/conexao.php"); 
 
 $principalTitulo=$_POST['principalTitulo'];
 $principalSubtitulo=$_POST['principalSubtitulo'];
 $principalDescricao=$_POST['principalDescricao'];
 
 $sql = mysqli_query($conn, "UPDATE tbsite SET principalTitulo = '" . $principalTitulo . "', principalSubtitulo = '" . $principalSubtitulo . "', principalDescricao = '" . $principalDescricao . "' WHERE idSite = " . $_SESSION['idSite']);
-
 
 $tituloImagem=$_POST['tituloImagem'];
 $dsImagem=$_POST['dsImagem'];
@@ -39,5 +41,7 @@ if ( $imagem != "none" && $tamanho > 0 )
 }
 //final do salvamento
 
-echo '<meta http-equiv="refresh" content="0;url=../principal.php">';
+//echo '<meta http-equiv="refresh" content="0;url=../principal.php">';
+
+echo 'concluido - quando inserir o ajax, este concluído ira sair daqui';
 ?>
