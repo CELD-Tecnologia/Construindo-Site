@@ -42,7 +42,7 @@
             break;
 
         case 4: //Quem Somos
-            $dadosSite = 'quemsomosSubtitulo, quemsomosFoto01Titulo, quemsomosFoto01Subtitulo, icVideo, video';
+            $dadosSite = 'quemsomosTitulo, quemsomosSubtitulo, quemsomosFoto01Titulo, quemsomosFoto01Subtitulo, icVideo, video';
             $setorImagem = ' idSetorImagem = 6 ';
             break;
 
@@ -72,7 +72,7 @@
     $result = $PDO->query( $sql );
 
     //Aqui define se retorna uma ou mais imagens na consulta
-    if($setor == 1 || $setor == 6){
+    if($setor == 1 || $setor == 6 || $setor == 4){
         $imagensSite = $result->fetch();
     } else {
         $imagensSite = $result->fetchAll();

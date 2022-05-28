@@ -33,19 +33,28 @@
                     </div>
                 </div>	
             </div>
-            <div class="col-md-6">						
+            <div class="col-md-6">	
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
-                    <input class="form-control" id="principalTitulo"	name="principalTitulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['principalTitulo']; ?>">
+                    <input class="form-control" id="principalTitulo"	name="principalTitulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['quemsomosTitulo']; ?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">Sub Título:</label>
-                    <textarea class="form-control" id="principalSubtitulo" name="principalSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['principalSubtitulo']; ?></textarea>
+                    <textarea class="form-control" id="principalSubtitulo" name="principalSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['quemsomosSubtitulo']; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">Descrição:</label>
-                    <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['principalDescricao']; ?></textarea>
+                    <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['video']; ?></textarea>
                 </div>
+                <div class="form-group">
+                    <label class="control-label" for="exampleInputEmail1">Sub Título:</label>
+                    <textarea class="form-control" id="principalSubtitulo" name="principalSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['quemsomosFoto01Titulo']; ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="exampleInputEmail1">Descrição:</label>
+                    <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['quemsomosFoto01Subtitulo']; ?></textarea>
+                </div>
+                icVideo
                 <button id="btnAlterar" class="btn btn-primary btn-lg">Alterar - Inseri AJAX e ajustar o Back</button>
                 <label id="retorno">Dados salvos com sucesso</label>
             </div>
