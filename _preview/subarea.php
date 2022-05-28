@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	if(!isset($_SESSION)) { session_start(); }
 	include_once("../_php/conexao.php");
 	$idSite = $_SESSION['idSite'];
 	$idAreaAtuacao = $_GET['idAreaAtuacao'];

@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	if(!isset($_SESSION)) { session_start(); }
 	echo "ID Usuario: " . $_SESSION['idUsuario'];
 	include_once("../_php/conexao.php");
 ?>

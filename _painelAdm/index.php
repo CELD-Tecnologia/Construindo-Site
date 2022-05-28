@@ -1,6 +1,6 @@
 <?php
 	//Inserir segurança de sessão aberta em todas as telas do Painel Adm
-	session_start();
+	if(!isset($_SESSION)) { session_start(); }
 	echo "ID Usuario: " . $_SESSION['idUsuario'];
 ?>
 <html lang="pt-br">

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) { session_start(); }
     $_SESSION['setor'] = 6;
     include("_php/buscar-site.php");
 ?>

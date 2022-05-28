@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION)) { session_start(); }
 include_once("conexao.php"); 
 
 //Validação será feita em JS antes de enviar o método Post
