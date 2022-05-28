@@ -12,7 +12,7 @@
 </ol>
 <div class="col-md-12">
     <div class="row">
-        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizarPrincipal.php" >
+        <form enctype="multipart/form-data" role="form" method="post" action="#" >
             <div class="col-md-6">
                 <div class="row">
                     <div class="form-group">								
@@ -45,14 +45,41 @@
                     <label class="control-label" for="exampleInputEmail1">Descrição:</label>
                     <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['principalDescricao']; ?></textarea>
                 </div>
-                <button id="btnAlterar" class="btn btn-primary btn-lg">Alterar - Inseri AJAX e ajustar o Back</button>
-                <label id="retorno">Dados salvos com sucesso</label>
+                <button id="btnAlterar" submi class="btn btn-primary btn-lg">Alterar - Inseri AJAX e ajustar o Back</button>
+                <div class="result"></div>
             </div>
         </form>						
     </div>
 </div>
 
 <script>
+    $(function(){
+        $('#btnAlterar').on('click',function(){
+            alert("funcionou");
+            /*
+            var dados = $(this).closest('form').serialize();
+            $.ajax({
+                url: "_conteudo/_php/atualizar-principal.php",
+                data: {
+                    dados: dados
+                },
+                dataType: "json",
+                type: "POST",
+                beforeSend: function () {
+                    $(".result").html('Carregando. Aguarde, por favor.');
+                },
+                success: function(result) {
+                    $(".result").html('Dados salvos com sucesso');
+                },
+                error: function(){
+                    $(".result").html("Error");
+                }
+            });
+            */
+        });
+    });
+
+    /*
     $(document).ready(function(){
         $('#btnAlterar').on('click',function(){
             //antes de enviar, aqui precisa realizar a validação de todos os campos

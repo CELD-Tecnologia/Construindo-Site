@@ -1,6 +1,4 @@
 <?php
-    //header('Content-Type: text/html; charset=utf-8');
-
     if(!isset($_SESSION)) { session_start(); }
     $idSite = $_SESSION['idSite'];
 
