@@ -134,7 +134,7 @@
 		<script src="js/sb-admin.min.js"></script>
 	</div>
 
-</body>
+	</body>
 
 </html>
 

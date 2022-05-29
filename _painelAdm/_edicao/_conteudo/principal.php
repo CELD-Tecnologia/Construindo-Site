@@ -12,7 +12,7 @@
 </ol>
 <div class="col-md-12">
     <div class="row">
-        <form enctype="multipart/form-data" role="form" method="post" action="#" >
+        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-principal.php" >
             <div class="col-md-6">
                 <div class="row">
                     <div class="form-group">								
@@ -53,6 +53,7 @@
 </div>
 
 <script>
+    /*
     $(function(){
         $('#btnAlterar').on('click',function(){
             alert("funcionou");
@@ -75,7 +76,6 @@
                     $(".result").html("Error");
                 }
             });
-            */
         });
     });
 

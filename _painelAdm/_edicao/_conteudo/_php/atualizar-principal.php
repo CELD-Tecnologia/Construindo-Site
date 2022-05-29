@@ -41,4 +41,7 @@
                                     WHERE idSetorImagem = 2 AND idSite = " . $_SESSION['idSite']);
     }
 
+    $_SESSION['setor'] = 1;
+    header("location: ../../index.php");
+
 ?>
