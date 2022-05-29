@@ -14,7 +14,7 @@
                                 SET {$dados}
                                 WHERE idSite = " . $_SESSION['idSite']);
 
-    //Atualizando a imagem do principal
+    //Atualizando a imagem e dados do principal
     $imagem = $_FILES['imagem']['tmp_name'];
     $tamanho = $_FILES['imagem']['size'];
     $formatoImagem = $_FILES['imagem']['type'];
@@ -28,18 +28,26 @@
         fclose($fp);
 
             
-        $dados = "  tituloImagem      = '{$_POST['tituloImagem']}',
-                    dsImagem          = '{$_POST['dsImagem']}',
-                    imagem            = '{$conteudo}';
-                    tamanho           = '{$tamanho}';
-                    formatoImagem     = '{$formatoImagem}';
-                    nmOriginalImagem  = '{$nmOriginalImagem}';
+        $dados = "  imagem            = '{$conteudo}',
+                    tamanho           = '{$tamanho}',
+                    formatoImagem     = '{$formatoImagem}',
+                    nmOriginalImagem  = '{$nmOriginalImagem}',
                 ";
 
         $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                     SET {$dados}
                                     WHERE idSetorImagem = 2 AND idSite = " . $_SESSION['idSite']);
+    } else {
+        $dados = "";
     }
+
+    $dados .= " tituloImagem      = '{$_POST['tituloImagem']}',
+                dsImagem          = '{$_POST['dsImagem']}'
+            ";
+
+    $sql = mysqli_query($conn, "UPDATE tbgaleria 
+                                    SET {$dados}
+                                    WHERE idSetorImagem = 2 AND idSite = " . $_SESSION['idSite']);
 
     $_SESSION['setor'] = 1;
     header("location: ../../index.php");

@@ -45,7 +45,7 @@
                     <label class="control-label" for="exampleInputEmail1">Descrição:</label>
                     <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['principalDescricao']; ?></textarea>
                 </div>
-                <button id="btnAlterar" submi class="btn btn-primary btn-lg">Alterar - Inseri AJAX e ajustar o Back</button>
+                <button id="btnAlterar" submi class="btn btn-primary btn-lg">Salvar alterações</button>
                 <div class="result"></div>
             </div>
         </form>						
