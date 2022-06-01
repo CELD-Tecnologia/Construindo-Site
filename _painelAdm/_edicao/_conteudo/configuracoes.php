@@ -12,19 +12,19 @@
 </ol>
 <div class="col-md-12">
     <div class="row">
-        <div class="col-md-4">					
-            <form enctype="multipart/form-data" role="form" method="post" action="_php/atualizarSite.php">
+        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-configuracoes.php">
+
+            <div class="col-md-4">					
                 <div class="form-group" style="width: 300px">								
                     <label class="control-label" for="exampleInputEmail1">&nbsp;Favicon (ícone do site)</label>	
                     <div class="item active">
                         <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite['imagem'] ) . '" />'; ?>
-                            
                     </div>			
                     <input type="file" accept="image/*" name="imagem" class="form-control" id="inputPerfil"/>								
                 </div>												
-        </div>
+            </div>
     
-        <div class="col-md-6">	
+            <div class="col-md-6">	
                 <div class="form-group">
                     <label class="control-label" for="exampleInputPassword1">Alterar Template:</label>
                     <select class="form-control" name="cdCSS" id="cdCSS">									
@@ -54,11 +54,11 @@
                     <label class="control-label" for="exampleInputEmail1">Separar palavras-chaves por vírgula</label>
                 </div>
 
-                inserir as validações em javascript para otimizar as atualizações do site
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary">Alterar - falta JS</button>
+                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
                 </div>
-            </form>
-        </div>
+            
+            </div>
+        </form>
     </div>
 </div>

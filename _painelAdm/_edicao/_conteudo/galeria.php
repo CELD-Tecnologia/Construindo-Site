@@ -20,7 +20,7 @@
                     <?php foreach($imagensSite AS $imagem): ?>
                         <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagem['imagem'] ) . '" />'; ?>
 
-                        <form enctype="multipart/form-data" role="form" method="post" action="_php/editarGaleria.php?idImagem=<?php echo $imagem['idImagem']; ?>">
+                        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-galeria.php?idImagem=<?php echo $imagem['idImagem']; ?>&etapa=2">
                             <div class="form-group">
                                 <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
                                 <input class="form-control" id="tituloImagem"	name="tituloImagem" placeholder="Digite o título desejado" type="text" value="<?php echo $imagem['tituloImagem']; ?>">
@@ -29,16 +29,25 @@
                                 <label class="control-label" for="exampleInputEmail1">Descrição:</label>
                                 <textarea class="form-control" id="dsImagem" name="dsImagem" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagem['dsImagem']; ?></textarea>
                             </div>
-                                <button type="submit" class="btn btn-default">Editar - não funciona</button>
-                                <a href="_php/excluirGaleria.php?idImagem=<?php echo $imagem['idImagem']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Excluir </a>
+                                <button type="submit" class="btn btn-default">Editar</button>
+                                <a href="_conteudo/_php/atualizar-galeria.php?idImagem=<?php echo $imagem['idImagem']; ?>&etapa=3" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Excluir </a>
                         </form>
                     <?php endforeach; ?>
                 </div>							
             </div>
 
             <div class="form-group">
-                <form enctype="multipart/form-data" role="form" method="post" action="_php/novoGaleria.php">
-                    <div class="form-group">								
+                <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-galeria.php?etapa=1">
+                    <div class="form-group">
+                        <h5>Inserir nova imagem</h5>
+                        <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
+                                <input class="form-control" id="tituloImagem"	name="tituloImagem" placeholder="Digite o título desejado" type="text" value="<?php echo $imagem['tituloImagem']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">Descrição:</label>
+                                <textarea class="form-control" id="dsImagem" name="dsImagem" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagem['dsImagem']; ?></textarea>
+                            </div>
                         <label class="control-label" for="exampleInputEmail1">&nbsp;Novo Galeria:</label>				
                         <input type="file" accept="image/*" name="imagem" class="form-control" id="inputPerfil"/>								
                     </div>
