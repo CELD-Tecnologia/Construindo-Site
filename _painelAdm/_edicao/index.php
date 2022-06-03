@@ -1,6 +1,9 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-	$_SESSION['idSite'] = 115;
+	if(empty($_SESSION['idSite'])) {
+		$_SESSION['idSite'] = $_GET['idSite'];
+	}
+	
 ?>
 <html lang="pt-br">
 	<head>

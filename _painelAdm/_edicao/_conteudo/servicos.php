@@ -13,7 +13,7 @@
 </ol>
 <div class="row">
     <div class="col-md-6">			
-        <form enctype="multipart/form-data" role="form" method="post" action="_php/atualizarPrincipal.php?idImagem=<?php echo $row['idImagem']; ?>">		
+        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-servicos.php">		
             <div class="form-group">
                 <label class="control-label" for="exampleInputEmail1">Título:</label>
                 <textarea class="form-control" id="servicoTitulo" name="servicoTitulo" placeholder="Digite o título desejado" rows="4" cols="50"><?php echo $site['servicoTitulo']; ?></textarea>
@@ -35,7 +35,7 @@
                     <textarea class="form-control" id="servicoFoto0<?php echo $servico; ?>Descricao" name="servicoFoto0<?php echo $servico; ?>Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['servicoFoto0'.$servico.'Descricao']; ?></textarea>
                 </div>
             <?php endforeach; ?>
-            <button type="submit" class="btn btn-primary btn-lg">Alterar - falta JS e alterar descricao foto principal</button>
+            <button type="submit" class="btn btn-primary btn-lg">Alterar - apenas texto</button>
         </form>	
     </div>
 </div>
