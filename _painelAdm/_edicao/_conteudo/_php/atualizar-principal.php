@@ -20,8 +20,7 @@
     $formatoImagem = $_FILES['imagem']['type'];
     $nmOriginalImagem = $_FILES['imagem']['name'];
 
-    if ( $imagem != "none" && $tamanho > 0 )
-    {
+    if ( $imagem != "none" && $tamanho > 0 ) {
         $fp = fopen($imagem, "rb");
         $conteudo = fread($fp, $tamanho);
         $conteudo = addslashes($conteudo);

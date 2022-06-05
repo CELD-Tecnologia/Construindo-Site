@@ -524,3 +524,6 @@ footer.sticky-footer {
 	background: #eee;
 	
 }
+
+div.items p {display: none}
+div.items p:target {display: block}

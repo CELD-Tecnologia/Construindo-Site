@@ -19,7 +19,51 @@
                                 SET {$dados}
                                 WHERE idSite = " . $_SESSION['idSite']);
 
-    $_SESSION['setor'] = 3;
-    header("location: ../../index.php");
+$servicos = [1, 2, 3]; //Aqui podemos descidir quantos serviços terá no site. Hoje o BD só aceita 3 -> tentar mudar para uma constante
+foreach($servicos as $servico) {
+
+    $idSetorImagem = $_POST['tituloImagem' . $servico];
+
+    if(!empty($_FILES['imagem' . $servico])) {
+
+        //Atualizando a imagem do serviço
+        $imagem = $_FILES['imagem' . $servico]['tmp_name'];
+        $tamanho = $_FILES['imagem' . $servico]['size'];
+        $formatoImagem = $_FILES['imagem' . $servico]['type'];
+        $nmOriginalImagem = $_FILES['imagem' . $servico]['name'];
+
+        if ( $imagem != "none" && $tamanho > 0 ) {
+            $fp = fopen($imagem, "rb");
+            $conteudo = fread($fp, $tamanho);
+            $conteudo = addslashes($conteudo);
+            fclose($fp);
+
+                
+            $dados = "  imagem            = '{$conteudo}',
+                        tamanho           = '{$tamanho}',
+                        formatoImagem     = '{$formatoImagem}',
+                        nmOriginalImagem  = '{$nmOriginalImagem}',
+                    ";
+
+            $sql = mysqli_query($conn, "UPDATE tbgaleria 
+                                        SET {$dados}
+                                        WHERE idSetorImagem = {$idSetorImagem} AND idSite = " . $_SESSION['idSite']);
+        } else {
+            $dados = "";
+        }
+    }
+
+    $dados .= " tituloImagem      = '{$_POST['tituloImagem' . $servico]}',
+                dsImagem          = '{$_POST['dsImagem' . $servico]}'
+            ";
+
+    $sql = mysqli_query($conn, "UPDATE tbgaleria 
+                                    SET {$dados}
+                                    WHERE idSetorImagem = {$idSetorImagem} AND idSite = " . $_SESSION['idSite']);
+
+}
+
+$_SESSION['setor'] = 3;
+header("location: ../../index.php");
 
 ?>
