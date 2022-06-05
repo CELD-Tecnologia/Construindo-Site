@@ -56,7 +56,7 @@
                 <p id="default"></p><!-- by default, show no text -->
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg">Alterar - apenas texto</button>
+            <button type="submit" class="btn btn-primary btn-lg">Salvar alterações</button>
         </form>	
     </div>
 </div>

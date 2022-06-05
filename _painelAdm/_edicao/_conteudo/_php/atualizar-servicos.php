@@ -4,7 +4,6 @@
 
     //Atualizando o site
     //Falta as validações nas strings
-
     $dados = "  servicoTitulo           = '{$_POST['servicoTitulo']}',
                 servicoSubtitulo        = '{$_POST['servicoSubtitulo']}',
                 servicoFoto01Titulo     = '{$_POST['servicoFoto01Titulo']}',
@@ -22,7 +21,7 @@
 $servicos = [1, 2, 3]; //Aqui podemos descidir quantos serviços terá no site. Hoje o BD só aceita 3 -> tentar mudar para uma constante
 foreach($servicos as $servico) {
 
-    $idSetorImagem = $_POST['tituloImagem' . $servico];
+    $idSetorImagem = $_POST['idSetorImagem' . $servico];
 
     if(!empty($_FILES['imagem' . $servico])) {
 
@@ -37,12 +36,11 @@ foreach($servicos as $servico) {
             $conteudo = fread($fp, $tamanho);
             $conteudo = addslashes($conteudo);
             fclose($fp);
-
                 
             $dados = "  imagem            = '{$conteudo}',
-                        tamanho           = '{$tamanho}',
+                        tamanhoImagem     = '{$tamanho}',
                         formatoImagem     = '{$formatoImagem}',
-                        nmOriginalImagem  = '{$nmOriginalImagem}',
+                        nmOriginalImagem  = '{$nmOriginalImagem}'
                     ";
 
             $sql = mysqli_query($conn, "UPDATE tbgaleria 

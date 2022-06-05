@@ -32,9 +32,9 @@
 
             
         $dados = "  imagem            = '{$conteudo}',
-                    tamanho           = '{$tamanho}',
+                    tamanhoImagem     = '{$tamanho}',
                     formatoImagem     = '{$formatoImagem}',
-                    nmOriginalImagem  = '{$nmOriginalImagem}',
+                    nmOriginalImagem  = '{$nmOriginalImagem}'
                 ";
 
         $sql = mysqli_query($conn, "UPDATE tbgaleria 
