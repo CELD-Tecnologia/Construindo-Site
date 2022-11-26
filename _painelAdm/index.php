@@ -1,8 +1,11 @@
 <?php
-	//Inserir segurança de sessão aberta em todas as telas do Painel Adm
-	if(!isset($_SESSION)) { session_start(); }
-	echo "ID Usuario: " . $_SESSION['idUsuario'];
+	 if(!isset($_SESSION)) { session_start(); }
+
+	 if($_SESSION['idUsuario'] == 0) { 
+		 echo '<meta http-equiv="refresh" content="0;url=http://construindosite.com.br">';
+	 }
 ?>
+
 <html lang="pt-br">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -86,7 +89,7 @@
 							<a data-toggle="tooltip" data-placement="top" title="Ver">
 								<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 							</a>
-							<a data-toggle="tooltip" data-placement="top" title="Sair" href="login.html">
+							<a data-toggle="tooltip" data-placement="top" title="Sair" href="http://construindosite.com.br">
 								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 							</a>
 						</div>

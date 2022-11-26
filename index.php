@@ -1,3 +1,5 @@
+<?php if(isset($_SESSION)) { session_destroy(); } ?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -114,7 +116,7 @@
 								<h4 class="text-center" style="color:black;">Vamos começar por aqui:</h4>
 						</div>
 						<div class="modal-body">
-							<form role="form" method="post" action="_php/criarSite.php">
+							<form role="form" method="post" action="_php/criarUsuario.php">
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Qual o seu nome?</label>
@@ -133,7 +135,7 @@
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Nova Senha:</label>
-									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha de Usuário" type="text" >
+									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha de Usuário" type="password" >
 								</div>
 
 								<div class="form-group">
@@ -161,12 +163,12 @@
 							 	
 								<div class="form-group">
 									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="emailUsuario" name="emailUsuario" placeholder="E-mail de Acesso" type="text" value="teste@teste.com.br" >
+									<input style="color:black;" id="emailUsuario" name="emailUsuario" placeholder="E-mail de Acesso" type="text" >
 								</div>
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Senha:</label>
-									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha" type="text" value="123" >
+									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha" type="password" >
 								</div>
 							
 								<button type="submit" class="button primary">Entrar</button>

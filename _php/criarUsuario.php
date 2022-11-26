@@ -20,6 +20,8 @@ $_SESSION['idUsuario'] = mysqli_insert_id($conn);
  * Confirmar que cadastro foi efetuado
  * Confirmar que sessão foi aberta corretamente
  * criptografia da senha
+ * Verificar também se tem alguma profissão escolhida 
+ *          ou se a profissão será no momento da criação do site apenas
  */
 
 echo '<meta http-equiv="refresh" content="0;url=../_painelAdm">';
