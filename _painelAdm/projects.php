@@ -146,17 +146,18 @@
 											</thead>
 											<?php
 												//selecionar todos os sites que o cara tenha registrado com o ID que ele fez login
-												$sql = mysqli_query($conn, "select dtCriacao, idSite, idStatus, titulo, site from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
+												$sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
 												while($row = mysqli_fetch_array($sql)){
-													$titulo = $row['titulo'];
-													$idSite = $row['idSite'];
-													$site = $row['site'];
-													$dtCriacao = $row['dtCriacao'];
-													$idStatus = $row['idStatus'];
+													$titulo = $row['site_nome_exibicao'];
+													$cd_site = $row['cd_site'];
+													$site = $row['site_dominio'];
+													$dtCriacao = $row['site_data_criacao'];
+													$idStatus = $row['site_status'];
+                                                    echo 'testando id: ' . $idStatus;
 											?>
 												<tbody>
 													<tr>
-														<td><?php echo $idSite; ?></td>
+														<td><?php echo $cd_site; ?></td>
 														<td>
 															<a><?php echo $titulo; ?></a>
 															<br />
@@ -167,9 +168,11 @@
 														<td></td>
 														<td>
 															<a target="_blank" href="http://<?php echo $site; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
-															<a target="_blank" href="../_preview?idSite=<?php echo $idSite; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
-															<a target="_blank" href="../_painelAdm/_edicao/index.php?idSite=<?php echo $idSite; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-															<a <?php if($idStatus == 0) {?> href="_php/excluirSite.php?idSite=<?php echo $idSite; ?>" <?php } ?> class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
+															<a target="_blank" href="../_preview?cd_site=<?php echo $cd_site; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
+															<a target="_blank" href="../_painelAdm/_edicao/index.php?cd_site=<?php echo $cd_site; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                                                            <?php if($idStatus == '0'): ?>
+                                                                <a href="_php/excluirSite.php?cd_site=<?php echo $cd_site; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
+                                                            <?php endif; ?>
 														</td>
 													</tr>
 												</tbody>

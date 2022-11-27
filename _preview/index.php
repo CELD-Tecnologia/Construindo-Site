@@ -311,7 +311,7 @@
                         ?>
 							<h5>
 								<?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
 								<?php }else{ ?>
 									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
 								<?php } ?>
@@ -329,7 +329,7 @@
                         ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php }else{ ?>
                                     <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php } ?>
@@ -347,7 +347,7 @@
                         ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php }else{ ?>
                                     <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php } ?>
@@ -365,7 +365,7 @@
                         ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php }else{ ?>
                                     <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
                                 <?php } ?>
