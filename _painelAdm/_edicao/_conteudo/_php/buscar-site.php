@@ -35,12 +35,12 @@
             break;
 
         case 3: //Serviço
-            $dadosSite = 'servicoTitulo, servicoSubtitulo, servicoFoto01Titulo, servicoFoto01Descricao, servicoFoto02Titulo, servicoFoto02Descricao, servicoFoto03Titulo, servicoFoto03Descricao';
+            $dadosSite = 'site_servico_titulo, site_servico_subtitulo, site_servico_foto_titulo_01, site_servico_foto_descricao_01, site_servico_foto_titulo_02, site_servico_foto_descricao_02, site_servico_foto_titulo_03, site_servico_foto_descricao_03';
             $setorImagem = ' cd_imagem_setor IN(3, 4, 5) ';
             break;
 
         case 4: //Quem Somos
-            $dadosSite = 'quemsomosTitulo, quemsomosSubtitulo, quemsomosFoto01Titulo, quemsomosFoto01Subtitulo, icVideo, video';
+            $dadosSite = 'site_quem_somos_titulo, site_quem_somos_subtitulo, site_quem_somos_foto_titulo_01, site_quem_somos_foto_subtitulo_01, site_possui_video, site_video';
             $setorImagem = ' cd_imagem_setor = 6 ';
             break;
 

@@ -5,12 +5,12 @@
     //Atualizando o site
     //Falta as validações nas strings
 
-    $dados = "  quemsomosTitulo           = '{$_POST['quemsomosTitulo']}',
-                quemsomosSubtitulo        = '{$_POST['quemsomosSubtitulo']}',
-                quemsomosFoto01Titulo     = '{$_POST['quemsomosFoto01Titulo']}',
-                quemsomosFoto01Subtitulo  = '{$_POST['quemsomosFoto01Subtitulo']}',
-                video                     = '{$_POST['video']}',
-                icVideo                   = '{$_POST['icVideo']}'
+    $dados = "  site_quem_somos_titulo           = '{$_POST['quemsomosTitulo']}',
+                site_quem_somos_subtitulo        = '{$_POST['quemsomosSubtitulo']}',
+                site_quem_somos_foto_titulo_01     = '{$_POST['quemsomosFoto01Titulo']}',
+                site_quem_somos_foto_subtitulo_01  = '{$_POST['quemsomosFoto01Subtitulo']}',
+                site_video                     = '{$_POST['video']}',
+                site_possui_video                   = '{$_POST['icVideo']}'
             ";
         
     $sql = mysqli_query($conn, "UPDATE sites 
