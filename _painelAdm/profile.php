@@ -1,3 +1,7 @@
+<?php
+    echo '<meta http-equiv="refresh" content="0;url=sites.php">';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -55,7 +59,7 @@
 											<li><a href="index.php">Principal</a></li>	
 											<!--<li><a href="Profile.php">Perfil</a></li>-->
 											<li><a href="pricing_tables.php">Planos e Preços</a></li> 
-											<li><a href="projects.php">Meu Site</a></li>	
+											<li><a href="sites.php">Meu Site</a></li>	
 										</ul>
 									</li>                  
 								</ul>
@@ -74,7 +78,7 @@
 							<a data-toggle="tooltip" data-placement="top" title="Ver">
 								<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 							</a>
-							<a data-toggle="tooltip" data-placement="top" title="Sair" href="login.html">
+							<a data-toggle="tooltip" data-placement="top" title="Sair" href="logoff.php">
 								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 							</a>
 						</div>
@@ -95,7 +99,7 @@
 										<img src="images/img.jpg" alt="">Sr(a) Usuário(a) <!--inserir php chamando nome do usuário-->
 									</a>
 									<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">                      
-										<a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a>
+										<a class="dropdown-item"  href="logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
 									</div>
 								</li>                 
 							</ul>

@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="ATUALIZAÇÃO BANCO DE DADOS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_preview/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_preview/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/logoff.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/logoff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/pricing_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/pricing_tables.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/sites.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/sites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +57,7 @@
       <workItem from="1669521339269" duration="1109000" />
       <workItem from="1669522571354" duration="594000" />
       <workItem from="1669523349536" duration="860000" />
+      <workItem from="1669567959696" duration="2623000" />
     </task>
     <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
       <created>1669521103821</created>

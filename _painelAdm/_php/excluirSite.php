@@ -15,6 +15,6 @@
 	mysqli_query($conn, "DELETE from sites WHERE idSite = $idSite;");
 	mysqli_query($conn, "DELETE from sitescidade WHERE idSite = $idSite;");
 
-	echo '<meta http-equiv="refresh" content="0;url=../projects.php">';
+	echo '<meta http-equiv="refresh" content="0;url=../sites.php">';
 
 ?>

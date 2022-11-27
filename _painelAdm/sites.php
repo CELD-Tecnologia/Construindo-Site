@@ -1,21 +1,20 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-
-	echo "ID Usuario: " . $_SESSION['cd_usuario'];
 	include_once("../_php/conexao.php");
 
+    $where = '1';
+    if($_SESSION['usuario_tipo'] == '1') {
+        $where = "cd_usuario = {$_SESSION['cd_usuario']}";
+    }
 
-    /*
-//selecionar todos os sites que o cara tenha registrado com o ID que ele fez login
-$sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
-while ($row = mysqli_fetch_array($sql)){
-$titulo = $row['site_nome_exibicao'];
-$cd_site = $row['cd_site'];
-$site = $row['site_dominio'];
-$dtCriacao = $row['site_data_criacao'];
-$idStatus = $row['site_status'];
-echo 'testando id: ' . $idStatus;
-*/
+    $sites = array();
+    $sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio from sites where {$where}") or die(mysqli_error());
+    while ($row = mysqli_fetch_array($sql)){
+        $sites[] = $row;
+    }
+
+    //var_dump('<pre>' . print_r($sites, 1) . '</pre>');
+    //die();
 
 ?>
 <html lang="pt-br">
@@ -27,16 +26,10 @@ echo 'testando id: ' . $idStatus;
 
 		<title>Construindo Site | Administrativo</title>
 
-		<!-- Bootstrap -->
 		<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-		<!-- Font Awesome -->
 		<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-		<!-- NProgress -->
 		<link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-		<!-- iCheck -->
 		<link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
-		<!-- Custom Theme Style -->
 		<link href="build/css/custom.min.css" rel="stylesheet">
 	</head>
 
@@ -51,21 +44,18 @@ echo 'testando id: ' . $idStatus;
 
 						<div class="clearfix"></div>
 
-						<!-- menu profile quick info -->
 						<div class="profile clearfix">
 							<div class="profile_pic">
 								<img src="images/img.jpg" alt="..." class="img-circle profile_img">
 							</div>
 							<div class="profile_info">
 								<span>Bem-vindo,</span>
-								<h2>Sr(a) Usuário(a)</h2> <!--inserir php com nome do usuário-->
+								<h2>Sr(a) <?php echo $_SESSION['usuario_nome']; ?></h2>
 							</div>
 						</div>
-						<!-- /menu profile quick info -->
 
 						<br />
 
-						<!-- sidebar menu -->
 						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 							<div class="menu_section">                
 								<ul class="nav side-menu">
@@ -81,9 +71,8 @@ echo 'testando id: ' . $idStatus;
 								</ul>
 							</div>    
 						</div>
-						<!-- /sidebar menu -->
 
-						<!-- /menu footer buttons -->
+						<!-- /menu footer buttons -> menu da parte debaixo da tela, verificar o que fazer com estes itens primeiros -->
 						<div class="sidebar-footer hidden-small">
 							<a data-toggle="tooltip" data-placement="top" title="Config.">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -102,7 +91,6 @@ echo 'testando id: ' . $idStatus;
 					</div>
 				</div>
 
-				<!-- top navigation -->
 				<div class="top_nav">
 					<div class="nav_menu">
 						<div class="nav toggle">
@@ -112,7 +100,7 @@ echo 'testando id: ' . $idStatus;
 							<ul class=" navbar-right">
 								<li class="nav-item dropdown open" style="padding-left: 15px;">
 									<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-										<img src="images/img.jpg" alt="">Sr(a) Usuário(a)<!--inserir php chamando nome do usuário-->
+										<img src="images/img.jpg" alt="">Sr(a) <?php echo $_SESSION['usuario_nome']; ?>
 									</a>
 									<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">									  
 										<a class="dropdown-item"  href="logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
@@ -122,14 +110,12 @@ echo 'testando id: ' . $idStatus;
 						</nav>
 					</div>
 				</div>
-				<!-- /top navigation -->
 
-				<!-- page content -->
 				<div class="right_col" role="main">
 					<div class="">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Veja todos os seus sites aqui</h3>
+								<h3>Sites gerenciados</h3>
 							</div>					  
 						</div>
             
@@ -138,20 +124,16 @@ echo 'testando id: ' . $idStatus;
 						<div class="row">
 							<div class="col-md-12">
 								<div class="x_panel">
-									<div class="x_title">
-										<h2>Meus Sites</h2> 
-									</div>
 									<div class="col-md-12">
 										<a href="_php/criarSite.php" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Novo Site </a>
 									</div>
 									
 									<div class="x_content">										
 										<p>Aqui você pode editar e visualizar os seus sites</p>
-										<!-- start project list -->
 										<table class="table table-striped projects">
 											<thead>
 												<tr>
-													<th style="width: 10%">ID</th>
+													<th style="width: 10%">Código</th>
 													  <th style="width: 30%">Site</th>
 													  <th></th>
 													  <th></th>
@@ -160,71 +142,53 @@ echo 'testando id: ' . $idStatus;
 												</tr>
 											</thead>
 											<?php
-												//selecionar todos os sites que o cara tenha registrado com o ID que ele fez login
-												$sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
-												while($row = mysqli_fetch_array($sql)){
-													$titulo = $row['site_nome_exibicao'];
-													$cd_site = $row['cd_site'];
-													$site = $row['site_dominio'];
-													$dtCriacao = $row['site_data_criacao'];
-													$idStatus = $row['site_status'];
-                                                    echo 'testando id: ' . $idStatus;
+                                                foreach ($sites as $site):
 											?>
 												<tbody>
 													<tr>
-														<td><?php echo $cd_site; ?></td>
+														<td><?php echo $site['cd_site']; ?></td>
 														<td>
-															<a><?php echo $titulo; ?></a>
+															<a><?php echo $site['site_nome_exibicao']; ?></a>
 															<br />
-															<small>Criado <?php echo $dtCriacao; ?></small>
+															<small>Criado <?php echo $site['site_data_criacao']; ?></small>
 														</td>
 														<td></td>
 														<td class="project_progress"></td>
 														<td></td>
 														<td>
-															<a target="_blank" href="http://<?php echo $site; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
-															<a target="_blank" href="../_preview?cd_site=<?php echo $cd_site; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
-															<a target="_blank" href="../_painelAdm/_edicao/index.php?cd_site=<?php echo $cd_site; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                                                            <?php if($idStatus == '0'): ?>
-                                                                <a href="_php/excluirSite.php?cd_site=<?php echo $cd_site; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
+															<a target="_blank" href="http://<?php echo $site['site_dominio']; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
+															<a target="_blank" href="../_preview?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
+															<a target="_blank" href="../_painelAdm/_edicao/index.php?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                                                            <?php if($site['site_status'] == '0'): ?>
+                                                                <a href="_php/excluirSite.php?cd_site=<?php echo $site['cd_site']; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
                                                             <?php endif; ?>
 														</td>
 													</tr>
 												</tbody>
-											<?php } ?>
+											<?php endforeach; ?>
 										</table>
-										<!-- end project list -->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- /page content -->
 
-				<!-- footer content -->
 				<footer>
 					<div class="pull-right">
 						Construindo Site - Sua Presença On-line 
 					</div>
 						<div class="clearfix"></div>
 				</footer>
-				<!-- /footer content -->
 			</div>
 		</div>
 
-		<!-- jQuery -->
 		<script src="vendors/jquery/dist/jquery.min.js"></script>
-		<!-- Bootstrap -->
-	   <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- FastClick -->
+	    <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="vendors/fastclick/lib/fastclick.js"></script>
-		<!-- NProgress -->
 		<script src="vendors/nprogress/nprogress.js"></script>
-		<!-- bootstrap-progressbar -->
 		<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 		
-		<!-- Custom Theme Scripts -->
 		<script src="build/js/custom.min.js"></script>
 	</body>
 </html>

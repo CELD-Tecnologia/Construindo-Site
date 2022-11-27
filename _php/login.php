@@ -9,17 +9,20 @@ $usuario_email = $_POST['usuario_email'];
 $usuario_senha = $_POST['usuario_senha'];
 	
 //$senha = hash('whirlpool', $senha);
-$sql = mysqli_query($conn, "select cd_usuario from usuarios where usuario_email = '" . $usuario_email . "' and usuario_senha = '" . $usuario_senha . "'") or die(mysqli_error());
+$sql = mysqli_query($conn, "select cd_usuario, usuario_nome, usuario_email, usuario_tipo from usuarios where usuario_email = '" . $usuario_email . "' and usuario_senha = '" . $usuario_senha . "'") or die(mysqli_error());
 while($row = mysqli_fetch_array($sql)){
 	$_SESSION['cd_usuario'] = $row['cd_usuario'];
+	$_SESSION['usuario_nome'] = $row['usuario_nome'];
+	$_SESSION['usuario_email'] = $row['usuario_email'];
+	$_SESSION['usuario_tipo'] = $row['usuario_tipo'];
 }
 
 //Inserir validação de senha errada em JS
 if($_SESSION['cd_usuario'] == 0) {
 //senha inválida
-echo '<meta http-equiv="refresh" content="0;url=http://construindosite.com.br">';
+echo '<meta http-equiv="refresh" content="0;url=../_painelAdm/logoff.php">';
 } else {
-	echo '<meta http-equiv="refresh" content="0;url=../_painelAdm">';
+	echo '<meta http-equiv="refresh" content="0;url=../_painelAdm/sites.php">';
 }
 
 /*

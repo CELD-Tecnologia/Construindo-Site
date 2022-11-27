@@ -153,5 +153,5 @@
             $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
         }
 
-    echo '<meta http-equiv="refresh" content="0;url=../projects.php">';
+    echo '<meta http-equiv="refresh" content="0;url=../sites.php">';
 ?>
