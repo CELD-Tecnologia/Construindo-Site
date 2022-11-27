@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="ATUALIZAÇÃO BANCO DE DADOS">
+    <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/logoff.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/logoff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/pricing_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/pricing_tables.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_painelAdm/sites.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/sites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_php/criarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/criarUsuario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,7 @@
       <workItem from="1669522571354" duration="594000" />
       <workItem from="1669523349536" duration="860000" />
       <workItem from="1669567959696" duration="2623000" />
+      <workItem from="1669572023654" duration="2160000" />
     </task>
     <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
       <created>1669521103821</created>
@@ -73,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669521151747</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wip">
+      <created>1669572064580</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669572064580</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +96,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ATUALIZAÇÃO BANCO DE DADOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="ATUALIZAÇÃO BANCO DE DADOS" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
   </component>
 </project>

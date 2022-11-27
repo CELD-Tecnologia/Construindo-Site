@@ -13,9 +13,6 @@
         $sites[] = $row;
     }
 
-    //var_dump('<pre>' . print_r($sites, 1) . '</pre>');
-    //die();
-
 ?>
 <html lang="pt-br">
 	<head>

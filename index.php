@@ -18,15 +18,12 @@
 	</head>
 	<body class="landing is-preload">
 
-		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
-				<!-- Header -->
 					<header id="header" class="alt">
 						<h1><a href="index.php">Construindo Site</a></h1>
 					</header>
 
-				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
 							<h2>Construindo Site</h2>
@@ -41,7 +38,6 @@
 						<a href="#one" class="more scrolly">Saiba mais...</a>
 					</section>
 
-				<!-- one -->
 					<section id="one" class="wrapper alt style2">
 						<section class="spotlight">
 							<div class="image"><img src="_images/plataforma.jpg" alt="" /></div><div class="content">
@@ -65,9 +61,6 @@
 						</section>
 					</section>
 
-				
-
-				<!-- two -->
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
 							<header>
@@ -81,7 +74,6 @@
 						</div>
 					</section>
 
-				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -95,7 +87,6 @@
 
 			</div>
 
-		<!-- Scripts -->
 			<script src="_assets/js/jquery.min.js"></script>
 			<script src="_assets/js/jquery.scrollex.min.js"></script>
 			<script src="_assets/js/jquery.scrolly.min.js"></script>
@@ -104,10 +95,6 @@
 			<script src="_assets/js/util.js"></script>
 			<script src="_assets/js/main.js"></script>
 			
-			
-						
-			<!--ModalNovoSite-->
-
 			<div class="modal fade" id="novoSite">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -125,7 +112,7 @@
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="text" >
+									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="email" >
 								</div>
 								
 								<div class="form-group">
@@ -135,7 +122,7 @@
 
 								<div class="form-group">
 									<label for="exampleInputEmail1">Repita a senha:</label>
-									<input style="color:black;" id="usuario_senhaConfirmar" name="usuario_senhaConfirmar" placeholder="Senha de Usuário" type="text" >
+									<input style="color:black;" id="usuario_senhaConfirmar" name="usuario_senhaConfirmar" placeholder="Senha de Usuário" type="password" >
 								</div>
 							
 								<button type="submit" class="button primary">Cadastrar</button>
@@ -158,7 +145,7 @@
 							 	
 								<div class="form-group">
 									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="text" >
+									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="email" >
 								</div>
 								
 								<div class="form-group">
