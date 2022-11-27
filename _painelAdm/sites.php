@@ -1,7 +1,22 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
+
 	echo "ID Usuario: " . $_SESSION['cd_usuario'];
 	include_once("../_php/conexao.php");
+
+
+    /*
+//selecionar todos os sites que o cara tenha registrado com o ID que ele fez login
+$sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
+while ($row = mysqli_fetch_array($sql)){
+$titulo = $row['site_nome_exibicao'];
+$cd_site = $row['cd_site'];
+$site = $row['site_dominio'];
+$dtCriacao = $row['site_data_criacao'];
+$idStatus = $row['site_status'];
+echo 'testando id: ' . $idStatus;
+*/
+
 ?>
 <html lang="pt-br">
 	<head>
@@ -56,10 +71,10 @@
 								<ul class="nav side-menu">
 									<li><a><i class="fa fa-home"></i> Geral <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="index.php">Principal</a></li>	
-											<!--<li><a href="Profile.php">Perfil</a></li>-->
-											<li><a href="pricing_tables.php">Planos e Preços</a></li> 
-											<li><a href="projects.php">Meu Site</a></li>	
+											<li><a href="#">Principal</a></li>
+											<li><a href="#">Perfil</a></li>
+											<li><a href="#">Planos e Preços</a></li>
+											<li><a href="sites.php">Meu Site</a></li>	
 										</ul>
 									</li>
                   
@@ -79,7 +94,7 @@
 							<a data-toggle="tooltip" data-placement="top" title="Ver">
 								<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 							</a>
-							<a data-toggle="tooltip" data-placement="top" title="Sair" href="login.html">
+							<a data-toggle="tooltip" data-placement="top" title="Sair" href="logoff.php">
 								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 							</a>
 						</div>
@@ -100,7 +115,7 @@
 										<img src="images/img.jpg" alt="">Sr(a) Usuário(a)<!--inserir php chamando nome do usuário-->
 									</a>
 									<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">									  
-										<a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a>
+										<a class="dropdown-item"  href="logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
 									</div>
 								</li>  
 							</ul>
