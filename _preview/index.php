@@ -306,7 +306,8 @@
 				<div class="row">
 					<div class="col-md-3 estilo-link">
 						<?php
-                        foreach($areasAtuacao[1] as $areaAtuacao):
+                        if(!empty($areasAtuacao[1])):
+                            foreach($areasAtuacao[1] as $areaAtuacao):
                         ?>
 							<h5>
 								<?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
@@ -317,13 +318,15 @@
 							</h5>
 						<?php
 							endforeach;
+                        endif;
 						?>
 					</div>
 
                     <div class="col-md-3 estilo-link">
                         <?php
-                        foreach($areasAtuacao[2] as $areaAtuacao):
-                            ?>
+                        if(!empty($areasAtuacao[2])):
+                            foreach($areasAtuacao[2] as $areaAtuacao):
+                        ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
                                     <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
@@ -332,14 +335,16 @@
                                 <?php } ?>
                             </h5>
                         <?php
-                        endforeach;
+                            endforeach;
+                        endif;
                         ?>
                     </div>
 
                     <div class="col-md-3 estilo-link">
                         <?php
-                        foreach($areasAtuacao[3] as $areaAtuacao):
-                            ?>
+                        if(!empty($areasAtuacao[3])):
+                            foreach($areasAtuacao[3] as $areaAtuacao):
+                        ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
                                     <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
@@ -348,14 +353,16 @@
                                 <?php } ?>
                             </h5>
                         <?php
-                        endforeach;
+                            endforeach;
+                        endif;
                         ?>
                     </div>
 
                     <div class="col-md-3 estilo-link">
                         <?php
-                        foreach($areasAtuacao[4] as $areaAtuacao):
-                            ?>
+                        if(!empty($areasAtuacao[4])):
+                            foreach($areasAtuacao[4] as $areaAtuacao):
+                        ?>
                             <h5>
                                 <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
                                     <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
@@ -364,7 +371,8 @@
                                 <?php } ?>
                             </h5>
                         <?php
-                        endforeach;
+                            endforeach;
+                        endif;
                         ?>
                     </div>
 
@@ -399,23 +407,24 @@
 						</h3>
 						<hr>
 					</div>
-				</div>
+
+
 				<?php $i = 3; ?>
 				<?php
 					$active = 'data-target="#fotoAmpliada"';
                     foreach ($galeria as $foto):
 				?>
 					<?php if ($i == 3) {?>
-					<div class="row">
+					    <div class="row">
 					<?php } ?>
-						
+
 						<div class="col-md-4 titulocor">
 							<a href="#" data-toggle="modal" data-target="#fotoAmpliada"><img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:' . $foto['imagem_formato'] . ';base64,' . base64_encode( $foto['imagem'] ) . '"'; ?><?php echo $active; ?>></a>
 							<hr>
 						</div>
 
 						<?php $active = ""; $i--; ?>
-					
+
 					<?php if ($i == 0) {?>
 						</div>
 					<?php $i=3; }  ?>
@@ -423,7 +432,8 @@
 				<?php
 					endforeach;
 				?>
-				
+                    </div>
+                </div>
 			</div>
 		</div>
    
