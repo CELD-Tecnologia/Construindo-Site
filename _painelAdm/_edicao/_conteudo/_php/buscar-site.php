@@ -62,7 +62,7 @@
 
     $PDO = new PDO('mysql:host=criadordesite.mysql.uhserver.com;dbname=criadordesite;charset=utf8', 'celdtecnologia', 'marinhaBrasil@1' );
 
-    $sql = "SELECT {$dadosSite} FROM tbsite WHERE idSite = '{$idSite}'";
+    $sql = "SELECT {$dadosSite} FROM sites WHERE idSite = '{$idSite}'";
     $result = $PDO->query( $sql );
     $site = $result->fetch();
 

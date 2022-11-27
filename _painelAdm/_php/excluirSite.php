@@ -12,8 +12,8 @@
 
 	mysqli_query($conn, "DELETE from tbareaatuacao WHERE idSite = $idSite;");
 	mysqli_query($conn, "DELETE from tbgaleria WHERE idSite = $idSite;");
-	mysqli_query($conn, "DELETE from tbsite WHERE idSite = $idSite;");
-	mysqli_query($conn, "DELETE from tbsitecidade WHERE idSite = $idSite;");
+	mysqli_query($conn, "DELETE from sites WHERE idSite = $idSite;");
+	mysqli_query($conn, "DELETE from sitescidade WHERE idSite = $idSite;");
 
 	echo '<meta http-equiv="refresh" content="0;url=../projects.php">';
 

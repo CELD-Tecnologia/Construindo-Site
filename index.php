@@ -120,27 +120,22 @@
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Qual o seu nome?</label>
-									<input style="color:black;" id="nmUsuario" name="nmUsuario" placeholder="Digite Seu Nome" type="text" >
+									<input style="color:black;" id="usuario_nome" name="usuario_nome" placeholder="Digite Seu Nome" type="text" >
 								</div>
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="emailUsuario" name="emailUsuario" placeholder="E-mail de Acesso" type="text" >
-								</div>
-
-								<div class="form-group">
-									<label for="exampleInputEmail1">Profissão:</label>
-									<input style="color:black;" id="idProfissao" name="idProfissao" placeholder="Sua Profissão" type="text" value="1">
+									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="text" >
 								</div>
 								
 								<div class="form-group">
-									<label for="exampleInputEmail1">Nova Senha:</label>
-									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha de Usuário" type="password" >
+									<label for="exampleInputEmail1">Senha:</label>
+									<input style="color:black;" id="usuario_senha" name="usuario_senha" placeholder="Senha de Usuário" type="password" >
 								</div>
 
 								<div class="form-group">
-									<label for="exampleInputEmail1">Confirme a senha:</label>
-									<input style="color:black;" id="senhaUsuarioConfirmar" name="senhaUsuarioConfirmar" placeholder="Senha de Usuário" type="text" >
+									<label for="exampleInputEmail1">Repita a senha:</label>
+									<input style="color:black;" id="usuario_senhaConfirmar" name="usuario_senhaConfirmar" placeholder="Senha de Usuário" type="text" >
 								</div>
 							
 								<button type="submit" class="button primary">Cadastrar</button>
@@ -163,12 +158,12 @@
 							 	
 								<div class="form-group">
 									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="emailUsuario" name="emailUsuario" placeholder="E-mail de Acesso" type="text" >
+									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="text" >
 								</div>
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Senha:</label>
-									<input style="color:black;" id="senhaUsuario" name="senhaUsuario" placeholder="Senha" type="password" >
+									<input style="color:black;" id="usuario_senha" name="usuario_senha" placeholder="Senha" type="password" >
 								</div>
 							
 								<button type="submit" class="button primary">Entrar</button>

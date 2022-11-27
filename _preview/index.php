@@ -1,55 +1,74 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
 	include_once("../_php/conexao.php");
-	$idSite = $_GET['idSite'];
-	$_SESSION['idSite'] = $idSite;
-	
-	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, nomeSite, principalTitulo, principalSubtitulo, principalDescricao, 
-	whats, telefone, facebook, instagram, servicoTitulo, servicoSubtitulo, servicoFoto01Titulo, servicoFoto01Descricao, servicoFoto02Titulo, 
-	servicoFoto02Descricao, servicoFoto03Titulo, servicoFoto03Descricao, quemsomosTitulo, quemsomosSubtitulo, quemsomosFoto01Titulo, quemsomosFoto01Subtitulo, 
-	areadeatuacaoTitulo, areadeatuacaoSubtitulo, galeriaTitulo, galeriaSubtitulo, email, qtImagem, icVideo, video, fraseMunicipio, cdCSS 
-	FROM tbsite WHERE idSite = " . $idSite);
+	$cd_site = $_GET['cd_site'];
+	$_SESSION['cd_site'] = $cd_site;
+
+	$sql = mysqli_query($conn, "SELECT sites.*, sites_css.*
+								FROM sites 
+								INNER JOIN sites_css ON sites_css.cd_site_css = sites.cd_site_css
+								WHERE cd_site = " . $cd_site);
     while($row = mysqli_fetch_array($sql)){
-        $nomeSite = $row['nomeSite'];
-		$titulo = $row['titulo'];
-		$descricao = $row['descricao'];
-		$keyword = $row['keyword'];
-		$site = $row['site'];
-		$principalTitulo = $row['principalTitulo'];
-		$principalSubtitulo = $row['principalSubtitulo'];
-		$principalDescricao = $row['principalDescricao'];
-		$whats = $row['whats'];
-		$telefone = $row['telefone'];
-		$facebook = $row['facebook'];
-		$instagram = $row['instagram'];
-		$servicoTitulo = $row['servicoTitulo'];
-		$servicoSubtitulo = $row['servicoSubtitulo'];
-		$servicoFoto01Titulo = $row['servicoFoto01Titulo'];
-		$servicoFoto01Descricao = $row['servicoFoto01Descricao'];
-		$servicoFoto02Titulo = $row['servicoFoto02Titulo'];
-		$servicoFoto02Descricao = $row['servicoFoto02Descricao'];
-		$servicoFoto03Titulo = $row['servicoFoto03Titulo'];
-		$servicoFoto03Descricao = $row['servicoFoto03Descricao'];
-		$quemsomosTitulo = $row['quemsomosTitulo'];
-		$quemsomosSubtitulo = $row['quemsomosSubtitulo'];
-		$quemsomosFoto01Titulo = $row['quemsomosFoto01Titulo'];
-		$quemsomosFoto01Subtitulo = $row['quemsomosFoto01Subtitulo'];
-		$areadeatuacaoTitulo = $row['areadeatuacaoTitulo'];
-		$areadeatuacaoSubtitulo = $row['areadeatuacaoSubtitulo'];
-		$galeriaTitulo = $row['galeriaTitulo'];
-		$galeriaSubtitulo = $row['galeriaSubtitulo'];
-		$email = $row['email'];
-		$icVideo = $row['icVideo'];
-		$video = $row['video'];
-		$fraseMunicipio = $row['fraseMunicipio'];
-		$cdCSS = $row['cdCSS'];
+        $status = $row['site_status'];
+        $googleAnalytics = $row['site_google_analytics'];
+        $nomeSite = $row['site_nome_exibicao'];
+		$titulo = $row['site_titulo'];
+		$descricao = $row['site_descricao'];
+		$keyword = $row['site_keyword'];
+		$site = $row['site_dominio'];
+		$principalTitulo = $row['site_principal_titulo'];
+		$principalSubtitulo = $row['site_principal_subtitulo'];
+		$principalDescricao = $row['site_principal_descricao'];
+		$whats = $row['site_whats'];
+		$telefone = $row['site_telefone'];
+		$facebook = $row['site_facebook'];
+		$instagram = $row['site_instagram'];
+		$servicoTitulo = $row['site_servico_titulo'];
+		$servicoSubtitulo = $row['site_servico_subtitulo'];
+		$servicoFoto01Titulo = $row['site_servico_foto_titulo_01'];
+		$servicoFoto01Descricao = $row['site_servico_foto_descricao_01'];
+		$servicoFoto02Titulo = $row['site_servico_foto_titulo_02'];
+		$servicoFoto02Descricao = $row['site_servico_foto_descricao_02'];
+		$servicoFoto03Titulo = $row['site_servico_foto_titulo_03'];
+		$servicoFoto03Descricao = $row['site_servico_foto_descricao_03'];
+		$quemsomosTitulo = $row['site_quem_somos_titulo'];
+		$quemsomosSubtitulo = $row['site_quem_somos_subtitulo'];
+		$quemsomosFoto01Titulo = $row['site_quem_somos_foto_titulo_01'];
+		$quemsomosFoto01Subtitulo = $row['site_quem_somos_foto_subtitulo_01'];
+		$areadeatuacaoTitulo = $row['site_area_atuacao_titulo'];
+		$areadeatuacaoSubtitulo = $row['site_area_atuacao_subtitulo'];
+        $fraseMunicipio = $row['site_area_atuacao_frase'];
+		$galeriaTitulo = $row['site_galeria_titulo'];
+		$galeriaSubtitulo = $row['site_galeria_subtitulo'];
+		$email = $row['site_email'];
+		$icVideo = $row['site_possui_video'];
+		$video = $row['site_video'];
+		$cdCSS = $row['site_css_caminho'];
 	}
-	
-	if($icVideo == 1){
-		$icVideo = "CHECKED";
-	} else {
-		$icVideo = "";
-	}
+
+    $querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_site = " . $_SESSION['cd_site'];
+    $resultado = mysqli_query($conn, $querySelecionaPorCodigo);
+    $imagens = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
+    while($row = mysqli_fetch_array($resultado)){
+       $imagens[$row['cd_imagem_setor']][] = $row;
+    }
+
+    $favicon = current($imagens[0]);
+    $banners = $imagens[1];
+    $principal = current($imagens[2]);
+    $servico01 = current($imagens[3]);
+    $servico02 = current($imagens[4]);
+    $servico03 = current($imagens[5]);
+    $quemSomos = current($imagens[6]);
+    $galeria = $imagens[7];
+
+    $sql = "SELECT * FROM sites_area_atuacao WHERE cd_site = " . $cd_site;
+    $resultado = mysqli_query($conn, $sql);
+    $areasAtuacao = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
+    while($row = mysqli_fetch_array($resultado)){
+        $areasAtuacao[$row['site_area_atuacao_coluna']][] = $row;
+    }
+
 ?>
 
 <html>
@@ -63,13 +82,7 @@
 		<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="https://construindosite.com.br/_css/<?php echo $cdCSS; ?>/estilo.css" rel="stylesheet" type="text/css">
-		<!-- Recuperando o FAVICON do BD -->
-		<?php
-			$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 0 AND idSite = " . $_SESSION['idSite'];
-			$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-			$row = mysqli_fetch_array($resultado);
-		?>
-		<link rel="icon" <?php echo 'href="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?> type="image/x-icon" />
+		<link rel="icon" <?php echo 'href="data:image/jpeg;base64,' . base64_encode( $favicon['imagem'] ) . '"';?> type="image/x-icon" />
 	</head>
 	
 	<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -130,16 +143,14 @@
 
 				<?php
 					$active = "active";
-					$querySelecionaPorCodigo = "SELECT formatoImagem, imagem FROM tbgaleria WHERE idSite = $idSite AND idSetorImagem = 1";
-					$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-					while($row = mysqli_fetch_array($resultado)){
+                    foreach ($banners as $banner):
 				?>
 					<div class="item <?php echo $active ?>">
-						<?php echo '<img src="data:' . $row['formatoImagem'] . ';base64,' . base64_encode( $row['imagem'] ) . '" />'; ?>
+						<?php echo '<img src="data:' . $banner['imagem_formato'] . ';base64,' . base64_encode( $banner['imagem'] ) . '" />'; ?>
 					</div>
 				<?php
 					$active = "";
-					}
+					endforeach;
 				?>
 				
 			</div>
@@ -150,19 +161,17 @@
 		
 		<div class="carousel hidden-lg hidden-md slide" id="fullcarousel-exampleMobile" data-interval="5000" data-ride="carousel">
 			<div id="homeMobile" class="carousel-inner">
-				<?php
-					$active = "active";
-					$querySelecionaPorCodigo = "SELECT formatoImagem, imagem FROM tbgaleria WHERE idSite = $idSite AND idSetorImagem = 1";
-					$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-					while($row = mysqli_fetch_array($resultado)){
-				?>
-					<div class="item <?php echo $active ?>">
-						<?php echo '<img src="data:' . $row['formatoImagem'] . ';base64,' . base64_encode( $row['imagem'] ) . '" />'; ?>
-					</div>
-				<?php
-					$active = "";
-					}
-				?>
+                <?php
+                $active = "active";
+                foreach ($banners as $banner):
+                    ?>
+                    <div class="item <?php echo $active ?>">
+                        <?php echo '<img src="data:' . $banner['imagem_formato'] . ';base64,' . base64_encode( $banner['imagem'] ) . '" />'; ?>
+                    </div>
+                    <?php
+                    $active = "";
+                endforeach;
+                ?>
 			</div>
 			
 			<a class="left carousel-control" href="#fullcarousel-example" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
@@ -177,12 +186,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
-					<?php
-						$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 2 AND idSite = " . $_SESSION['idSite'];
-						$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-						$row = mysqli_fetch_array($resultado);
-					?>
-						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?>>
+					    <img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $principal['imagem'] ) . '"';?>>
 					</div>
 					<div class="col-md-7">
 						<h3 class="text-left"><?php echo $principalTitulo; ?></h3>
@@ -220,34 +224,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<?php
-						$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 3 AND idSite = " . $_SESSION['idSite'];
-						$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-						$row = mysqli_fetch_array($resultado);
-						?>
-						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?>>
+						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $servico01['imagem'] ) . '"';?>>
 						<h4><?php echo $servicoFoto01Titulo; ?></h4>
 						<p class="text-justify"><?php echo $servicoFoto01Descricao; ?></p>
 					</div>
 					
 					<div class="col-md-4">
-					<?php
-						$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 4 AND idSite = " . $_SESSION['idSite'];
-						$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-						$row = mysqli_fetch_array($resultado);
-						?>
-						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?>>
+						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $servico02['imagem'] ) . '"';?>>
 						<h4><?php echo $servicoFoto02Titulo; ?></h4>
 						<p class="text-justify"><?php echo $servicoFoto02Descricao; ?></p>
 					</div>
 					
 					<div class="col-md-4">
-					<?php
-						$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 5 AND idSite = " . $_SESSION['idSite'];
-						$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-						$row = mysqli_fetch_array($resultado);
-						?>
-						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?>>
+						<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $servico03['imagem'] ) . '"';?>>
 						<h4><?php echo $servicoFoto03Titulo; ?></h4>
 						<p class="text-justify"><?php echo $servicoFoto03Descricao; ?>&nbsp;</p>
 					</div>
@@ -274,19 +263,14 @@
 					<div class="col-md-6">
 						
 						<?php
-						if($icVideo == "CHECKED"){?>
+						if($icVideo == "1"){?>
 							<div class="embed-responsive embed-responsive-16by9">
 							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $video ?>" frameborder="0" allowfullscreen></iframe>
 							</div>
 						<?php
-						}else{
+						} else {
 						?>
-							<?php
-							$querySelecionaPorCodigo = "SELECT imagem FROM tbgaleria WHERE idSetorImagem = 6 AND idSite = " . $_SESSION['idSite'];
-							$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-							$row = mysqli_fetch_array($resultado);
-							?>
-							<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '"';?>>
+							<img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:image/jpeg;base64,' . base64_encode( $quemSomos['imagem'] ) . '"';?>>
 						<?php
 						}
 						?>
@@ -322,83 +306,68 @@
 				<div class="row">
 					<div class="col-md-3 estilo-link">
 						<?php
-						$sql = mysqli_query($conn, "SELECT idAreaAtuacao, nmAreaAtuacao, comSubAreaAtuacao FROM tbareaatuacao WHERE coluna = 1 AND idSite = " . $idSite);
-						while($row = mysqli_fetch_array($sql)){
-							$idAreaAtuacao = $row['idAreaAtuacao'];
-							$nmAreaAtuacao = $row['nmAreaAtuacao'];
-							$comSubAreaAtuacao = $row['comSubAreaAtuacao'];
-						?>
+                        foreach($areasAtuacao[1] as $areaAtuacao):
+                        ?>
 							<h5>
-								<?php if($comSubAreaAtuacao == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $idAreaAtuacao; ?>&descricao=montador de moveis em <?php echo $nmAreaAtuacao . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
+								<?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
+									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
 								<?php }else{ ?>
-									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
+									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
 								<?php } ?>
 							</h5>
 						<?php
-							}
+							endforeach;
 						?>
 					</div>
-					
-					<div class="col-md-3 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idAreaAtuacao, nmAreaAtuacao, comSubAreaAtuacao FROM tbareaatuacao WHERE coluna = 2 AND idSite = " . $idSite);
-						while($row = mysqli_fetch_array($sql)){
-							$idAreaAtuacao = $row['idAreaAtuacao'];
-							$nmAreaAtuacao = $row['nmAreaAtuacao'];
-							$comSubAreaAtuacao = $row['comSubAreaAtuacao'];
-						?>
-							<h5>
-								<?php if($comSubAreaAtuacao == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $idAreaAtuacao; ?>&descricao=montador de moveis em <?php echo $nmAreaAtuacao . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php }else{ ?>
-									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php } ?>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
-					
-					<div class="col-md-3 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idAreaAtuacao, nmAreaAtuacao, comSubAreaAtuacao FROM tbareaatuacao WHERE coluna = 3 AND idSite = " . $idSite);
-						while($row = mysqli_fetch_array($sql)){
-							$idAreaAtuacao = $row['idAreaAtuacao'];
-							$nmAreaAtuacao = $row['nmAreaAtuacao'];
-							$comSubAreaAtuacao = $row['comSubAreaAtuacao'];
-						?>
-							<h5>
-								<?php if($comSubAreaAtuacao == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $idAreaAtuacao; ?>&descricao=montador de moveis em <?php echo $nmAreaAtuacao . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php }else{ ?>
-									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php } ?>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
-			
-					<div class="col-md-3 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idAreaAtuacao, nmAreaAtuacao, comSubAreaAtuacao FROM tbareaatuacao WHERE coluna = 4 AND idSite = " . $idSite);
-						while($row = mysqli_fetch_array($sql)){
-							$idAreaAtuacao = $row['idAreaAtuacao'];
-							$nmAreaAtuacao = $row['nmAreaAtuacao'];
-							$comSubAreaAtuacao = $row['comSubAreaAtuacao'];
-						?>
-							<h5>
-								<?php if($comSubAreaAtuacao == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $idAreaAtuacao; ?>&descricao=montador de moveis em <?php echo $nmAreaAtuacao . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php }else{ ?>
-									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmAreaAtuacao; ?></a>
-								<?php } ?>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
+
+                    <div class="col-md-3 estilo-link">
+                        <?php
+                        foreach($areasAtuacao[2] as $areaAtuacao):
+                            ?>
+                            <h5>
+                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php }else{ ?>
+                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php } ?>
+                            </h5>
+                        <?php
+                        endforeach;
+                        ?>
+                    </div>
+
+                    <div class="col-md-3 estilo-link">
+                        <?php
+                        foreach($areasAtuacao[3] as $areaAtuacao):
+                            ?>
+                            <h5>
+                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php }else{ ?>
+                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php } ?>
+                            </h5>
+                        <?php
+                        endforeach;
+                        ?>
+                    </div>
+
+                    <div class="col-md-3 estilo-link">
+                        <?php
+                        foreach($areasAtuacao[4] as $areaAtuacao):
+                            ?>
+                            <h5>
+                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
+                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=montador de moveis em <?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php }else{ ?>
+                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+                                <?php } ?>
+                            </h5>
+                        <?php
+                        endforeach;
+                        ?>
+                    </div>
+
 				</div>
 			</div>
 		</div>
@@ -434,16 +403,14 @@
 				<?php $i = 3; ?>
 				<?php
 					$active = 'data-target="#fotoAmpliada"';
-					$querySelecionaPorCodigo = "SELECT formatoImagem, imagem FROM tbgaleria WHERE idSite = $idSite AND idSetorImagem = 7";
-					$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-					while($row = mysqli_fetch_array($resultado)){
+                    foreach ($galeria as $foto):
 				?>
 					<?php if ($i == 3) {?>
 					<div class="row">
 					<?php } ?>
 						
 						<div class="col-md-4 titulocor">
-							<a href="#" data-toggle="modal" data-target="#fotoAmpliada"><img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:' . $row['formatoImagem'] . ';base64,' . base64_encode( $row['imagem'] ) . '"'; ?><?php echo $active; ?>></a>
+							<a href="#" data-toggle="modal" data-target="#fotoAmpliada"><img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:' . $foto['imagem_formato'] . ';base64,' . base64_encode( $foto['imagem'] ) . '"'; ?><?php echo $active; ?>></a>
 							<hr>
 						</div>
 
@@ -454,7 +421,7 @@
 					<?php $i=3; }  ?>
 
 				<?php
-					}
+					endforeach;
 				?>
 				
 			</div>
@@ -544,18 +511,16 @@
 
 							<?php
 								$active = 'active';
-								$querySelecionaPorCodigo = "SELECT formatoImagem, imagem FROM tbgaleria WHERE idSite = $idSite AND idSetorImagem = 7";
-								$resultado = mysqli_query($conn, $querySelecionaPorCodigo);
-								while($row = mysqli_fetch_array($resultado)){
-							?>				
+                                foreach ($galeria as $foto):
+							?>
 								<div class="item <?php echo $active; ?>">
-									<img <?php echo 'src="data:' . $row['formatoImagem'] . ';base64,' . base64_encode( $row['imagem'] ) . '"'; ?>>
+									<img <?php echo 'src="data:' . $foto['imagem_formato'] . ';base64,' . base64_encode( $foto['imagem'] ) . '"'; ?>>
 								</div>
 
 								<?php $active = ""; ?>
 
 							<?php
-								}
+								endforeach;
 							?>
 						
 							<a class="left carousel-control" href="#fullcarousel-exampleModal" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>

@@ -1,6 +1,6 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-	echo "ID Usuario: " . $_SESSION['idUsuario'];
+	echo "ID Usuario: " . $_SESSION['cd_usuario'];
 	include_once("../_php/conexao.php");
 ?>
 <html lang="pt-br">
@@ -146,7 +146,7 @@
 											</thead>
 											<?php
 												//selecionar todos os sites que o cara tenha registrado com o ID que ele fez login
-												$sql = mysqli_query($conn, "select dtCriacao, idSite, idStatus, titulo, site from tbsite where idUsuario = '" . $_SESSION['idUsuario'] . "'") or die(mysqli_error());
+												$sql = mysqli_query($conn, "select dtCriacao, idSite, idStatus, titulo, site from sites where cd_usuario = '" . $_SESSION['cd_usuario'] . "'") or die(mysqli_error());
 												while($row = mysqli_fetch_array($sql)){
 													$titulo = $row['titulo'];
 													$idSite = $row['idSite'];

@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-principal.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-principal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/seguranca.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/seguranca.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_painelAdm/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_php/criarSite.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_php/criarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/criarUsuario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_preview/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_preview/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_preview/subarea.php" beforeDir="false" afterPath="$PROJECT_DIR$/_preview/subarea.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2HUkxdHi8Q1fdc2oyNxACEHN8Vz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,6 +44,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/_workspace/construindo-site/Construindo-Site",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -44,6 +60,7 @@
       <updated>1668347306492</updated>
       <workItem from="1668347313804" duration="35000" />
       <workItem from="1669502779267" duration="223000" />
+      <workItem from="1669514689156" duration="5989000" />
     </task>
     <servers />
   </component>

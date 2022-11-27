@@ -11,7 +11,7 @@
                 keyword     = '{$_POST['keyword']}'
             ";
         
-    $sql = mysqli_query($conn, "UPDATE tbsite 
+    $sql = mysqli_query($conn, "UPDATE sites 
                                 SET {$dados}
                                 WHERE idSite = " . $_SESSION['idSite']);
 

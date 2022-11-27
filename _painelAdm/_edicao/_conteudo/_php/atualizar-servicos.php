@@ -14,7 +14,7 @@
                 servicoFoto03Descricao  = '{$_POST['servicoFoto03Descricao']}'
             ";
         
-    $sql = mysqli_query($conn, "UPDATE tbsite 
+    $sql = mysqli_query($conn, "UPDATE sites 
                                 SET {$dados}
                                 WHERE idSite = " . $_SESSION['idSite']);
 

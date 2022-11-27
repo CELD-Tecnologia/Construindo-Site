@@ -4,7 +4,7 @@
 	$idSite = $_SESSION['idSite'];
 	$idAreaAtuacao = $_GET['idAreaAtuacao'];
 	
-	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, whats, telefone, facebook, instagram, email, qtImagem, cdCSS FROM tbsite WHERE idSite = " . $idSite);
+	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, whats, telefone, facebook, instagram, email, qtImagem, cdCSS FROM sites WHERE idSite = " . $idSite);
     while($row = mysqli_fetch_array($sql)){
 		$titulo = $row['titulo'];
 		$descricao = $row['descricao'];

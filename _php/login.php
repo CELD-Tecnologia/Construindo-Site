@@ -1,21 +1,21 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
 
-$_SESSION['idUsuario'] = 0;
+$_SESSION['cd_usuario'] = 0;
 
 include_once("conexao.php"); 
 
-$emailUsuario = $_POST['emailUsuario'];
-$senhaUsuario = $_POST['senhaUsuario'];
+$usuario_email = $_POST['usuario_email'];
+$usuario_senha = $_POST['usuario_senha'];
 	
 //$senha = hash('whirlpool', $senha);
-$sql = mysqli_query($conn, "select idUsuario from tbusuario where emailUsuario = '" . $emailUsuario . "' and senhaUsuario = '" . $senhaUsuario . "'") or die(mysqli_error());
+$sql = mysqli_query($conn, "select cd_usuario from usuarios where usuario_email = '" . $usuario_email . "' and usuario_senha = '" . $usuario_senha . "'") or die(mysqli_error());
 while($row = mysqli_fetch_array($sql)){
-	$_SESSION['idUsuario'] = $row['idUsuario'];
+	$_SESSION['cd_usuario'] = $row['cd_usuario'];
 }
 
 //Inserir validação de senha errada em JS
-if($_SESSION['idUsuario'] == 0) {
+if($_SESSION['cd_usuario'] == 0) {
 //senha inválida
 echo '<meta http-equiv="refresh" content="0;url=http://construindosite.com.br">';
 } else {

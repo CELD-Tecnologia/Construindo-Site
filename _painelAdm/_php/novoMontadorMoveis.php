@@ -3,14 +3,14 @@
     include_once("../../_php/conexao.php");
 
 	$dtCriacao = date('Y-m-d');
-    $idUsuario = $_SESSION['idUsuario'];
+    $cd_usuario = $_SESSION['cd_usuario'];
 
 	$idProfissao = 1; //Montador de Móveis
 	$dominio = "montador123";
 
     //cadastrar site na tabela do site
         //verificar se domínio ja existe - inserir em JS no modal da criação
-        $sql = mysqli_query($conn, "INSERT INTO tbsite (idUsuario, dtCriacao, site) VALUES ($idUsuario, '$dtCriacao', '$dominio')");
+        $sql = mysqli_query($conn, "INSERT INTO sites (cd_usuario, dtCriacao, site) VALUES ($cd_usuario, '$dtCriacao', '$dominio')");
     
     //inserir imagens na tabela de imagens
         //Recuperar o ID do site
