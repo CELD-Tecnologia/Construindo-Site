@@ -11,52 +11,110 @@
     </li>
     <li class="breadcrumb-item active">Serviço</li>
 </ol>
-<div class="row">
-    <div class="col-md-6">			
-        <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-servicos.php">		
-            <div class="form-group">
-                <label class="control-label" for="exampleInputEmail1">Título:</label>
-                <textarea class="form-control" id="servicoTitulo" name="servicoTitulo" placeholder="Digite o título desejado" rows="4" cols="50"><?php echo $site['servicoTitulo']; ?></textarea>
+
+<form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-servicos.php">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">Título:</label>
+                                <textarea class="form-control" id="servicoTitulo" name="servicoTitulo" placeholder="Digite o título desejado" rows="4" cols="50"><?php echo $site['site_servico_titulo']; ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">Subtítulo:</label>
+                                <textarea class="form-control" id="servicoSubtitulo" name="servicoSubtitulo" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['site_servico_subtitulo']; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[0]['imagem'] ) . '" />'; ?>
+
+                            <input id="cd_imagem_setor1" name="cd_imagem_setor1" type="hidden" value="3">
+
+                            <br>
+
+                            <label class="control-label" for="exampleInputEmail1">Título:</label>
+                            <input class="form-control" id="imagem_titulo1"	name="imagem_titulo1" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[0]['imagem_titulo']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição:</label>
+                            <textarea class="form-control" id="imagem_descricao1" name="imagem_descricao1" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[0]['imagem_descricao']; ?></textarea>
+
+                            <label class="control-label" for="exampleInputEmail1">Alterar imagem:</label>
+                            <input type="file" accept="image/*" name="imagem1" class="form-control" id="inputPerfil"/>
+
+                            <label class="control-label" for="exampleInputEmail1">Título abaixo da imagem:</label>
+                            <input class="form-control" id="servicoFoto01Titulo"	name="servicoFoto01Titulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['site_servico_foto_titulo_01']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição abaixo da imagem:</label>
+                            <textarea class="form-control" id="servicoFoto01Descricao" name="servicoFoto01Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['site_servico_foto_descricao_01']; ?></textarea>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="exampleInputEmail1">Subtítulo:</label>
-                <textarea class="form-control" id="servicoSubtitulo" name="servicoSubtitulo" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['servicoSubtitulo']; ?></textarea>
-            </div>
-
-            <p>
-                <?php foreach($servicos as $servico): ?>
-                    <a href="#item<?php echo $servico; ?>">item <?php echo $servico; ?></a>
-                <?php endforeach; ?>
-            <a href="#default">clear</a>
-            </p>
-
-            <div class="items">
-                <?php foreach($servicos as $servico): ?>
-                    <p id="item<?php echo $servico; ?>">
-                        <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[$servico - 1]['imagem'] ) . '" />'; ?>
-
-                        <input id="cd_imagem_setor<?php echo $servico; ?>" name="cd_imagem_setor<?php echo $servico; ?>" type="hidden" value="<?php echo $imagensSite[$servico - 1]['cd_imagem_setor']; ?>">
-
-                        <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
-                        <input class="form-control" id="imagem_titulo<?php echo $servico; ?>"	name="imagem_titulo<?php echo $servico; ?>" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[$servico - 1]['imagem_titulo']; ?>">
-
-                        <label class="control-label" for="exampleInputEmail1">Descrição:</label>
-                        <textarea class="form-control" id="imagem_descricao<?php echo $servico; ?>" name="imagem_descricao<?php echo $servico; ?>" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[$servico - 1]['imagem_descricao']; ?></textarea>
-
-                        <label class="control-label" for="exampleInputEmail1">&nbsp;Alterar imagem:</label>				
-                        <input type="file" accept="image/*" name="imagem<?php echo $servico; ?>" class="form-control" id="inputPerfil"/>	
-
-                        <label class="control-label" for="exampleInputEmail1">servicoFoto0<?php echo $servico; ?>Titulo:</label>
-                        <textarea class="form-control" id="servicoFoto0<?php echo $servico; ?>Titulo" name="servicoFoto0<?php echo $servico; ?>Titulo" placeholder="Digite o título desejado" rows="4" cols="50"><?php echo $site['servicoFoto0'.$servico.'Titulo']; ?></textarea>
-
-                        <label class="control-label" for="exampleInputEmail1">Subtítulo:</label>
-                        <textarea class="form-control" id="servicoFoto0<?php echo $servico; ?>Descricao" name="servicoFoto0<?php echo $servico; ?>Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['servicoFoto0'.$servico.'Descricao']; ?></textarea>
-                    </p>
-                <?php endforeach; ?>
-                <p id="default"></p><!-- by default, show no text -->
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg">Salvar alterações</button>
-        </form>	
+        </div>
     </div>
-</div>
+
+    <hr>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[1]['imagem'] ) . '" />'; ?>
+
+                            <input id="cd_imagem_setor2" name="cd_imagem_setor2" type="hidden" value="4">
+
+                            <br>
+
+                            <label class="control-label" for="exampleInputEmail1">Título:</label>
+                            <input class="form-control" id="imagem_titulo2"	name="imagem_titulo2" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[1]['imagem_titulo']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição:</label>
+                            <textarea class="form-control" id="imagem_descricao2" name="imagem_descricao2" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[1]['imagem_descricao']; ?></textarea>
+
+                            <label class="control-label" for="exampleInputEmail1">Alterar imagem:</label>
+                            <input type="file" accept="image/*" name="imagem2" class="form-control" id="inputPerfil"/>
+
+                            <label class="control-label" for="exampleInputEmail1">Título abaixo da imagem:</label>
+                            <input class="form-control" id="servicoFoto02Titulo"	name="servicoFoto02Titulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['site_servico_foto_titulo_02']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição abaixo da imagem:</label>
+                            <textarea class="form-control" id="servicoFoto02Descricao" name="servicoFoto02Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['site_servico_foto_descricao_02']; ?></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[2]['imagem'] ) . '" />'; ?>
+
+                            <input id="cd_imagem_setor3" name="cd_imagem_setor3" type="hidden" value="5">
+
+                            <br>
+
+                            <label class="control-label" for="exampleInputEmail1">Título:</label>
+                            <input class="form-control" id="imagem_titulo3"	name="imagem_titulo3" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[2]['imagem_titulo']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição:</label>
+                            <textarea class="form-control" id="imagem_descricao3" name="imagem_descricao3" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[2]['imagem_descricao']; ?></textarea>
+
+                            <label class="control-label" for="exampleInputEmail1">Alterar imagem:</label>
+                            <input type="file" accept="image/*" name="imagem3" class="form-control" id="inputPerfil"/>
+
+                            <label class="control-label" for="exampleInputEmail1">Título abaixo da imagem:</label>
+                            <input class="form-control" id="servicoFoto03Titulo"	name="servicoFoto03Titulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['site_servico_foto_titulo_03']; ?>">
+
+                            <label class="control-label" for="exampleInputEmail1">Descrição abaixo da imagem:</label>
+                            <textarea class="form-control" id="servicoFoto03Descricao" name="servicoFoto03Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['site_servico_foto_descricao_03']; ?></textarea>
+
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-lg">Salvar alterações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

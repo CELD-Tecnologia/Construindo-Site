@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/quem-somos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/quem-somos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/servicos.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,7 @@
       <workItem from="1669567959696" duration="2623000" />
       <workItem from="1669572023654" duration="2160000" />
       <workItem from="1669576888977" duration="4161000" />
-      <workItem from="1669581739814" duration="5203000" />
+      <workItem from="1669581739814" duration="6899000" />
     </task>
     <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
       <created>1669521103821</created>
@@ -132,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669586385497</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="wip">
+      <created>1669587160143</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669587160143</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

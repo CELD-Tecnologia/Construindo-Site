@@ -4,14 +4,14 @@
 
     //Atualizando o site
     //Falta as validações nas strings
-    $dados = "  servicoTitulo           = '{$_POST['servicoTitulo']}',
-                servicoSubtitulo        = '{$_POST['servicoSubtitulo']}',
-                servicoFoto01Titulo     = '{$_POST['servicoFoto01Titulo']}',
-                servicoFoto01Descricao  = '{$_POST['servicoFoto01Descricao']}',
-                servicoFoto02Titulo     = '{$_POST['servicoFoto02Titulo']}',
-                servicoFoto02Descricao  = '{$_POST['servicoFoto02Descricao']}',
-                servicoFoto03Titulo     = '{$_POST['servicoFoto03Titulo']}',
-                servicoFoto03Descricao  = '{$_POST['servicoFoto03Descricao']}'
+    $dados = "  site_servico_titulo           = '{$_POST['servicoTitulo']}',
+                site_servico_subtitulo        = '{$_POST['servicoSubtitulo']}',
+                site_servico_foto_titulo_01     = '{$_POST['servicoFoto01Titulo']}',
+                site_servico_foto_descricao_01  = '{$_POST['servicoFoto01Descricao']}',
+                site_servico_foto_titulo_02     = '{$_POST['servicoFoto02Titulo']}',
+                site_servico_foto_descricao_02  = '{$_POST['servicoFoto02Descricao']}',
+                site_servico_foto_titulo_03     = '{$_POST['servicoFoto03Titulo']}',
+                site_servico_foto_descricao_03  = '{$_POST['servicoFoto03Descricao']}'
             ";
         
     $sql = mysqli_query($conn, "UPDATE sites 
@@ -52,7 +52,7 @@ foreach($servicos as $servico) {
     }
 
     $dados .= " imagem_titulo      = '{$_POST['imagem_titulo' . $servico]}',
-                imagem_descricao          = '{$_POST['imagem_descricao' . $servico]}'
+                imagem_descricao   = '{$_POST['imagem_descricao' . $servico]}'
             ";
 
     $sql = mysqli_query($conn, "UPDATE imagens 
