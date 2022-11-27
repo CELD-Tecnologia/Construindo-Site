@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-6">
 
-                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[0]['imagem'] ) . '" />'; ?>
+                            <?php echo '<img width=100% src="data:image/jpeg;base64,' . base64_encode( $imagensSite[0]['imagem'] ) . '" />'; ?>
 
                             <input id="cd_imagem_setor1" name="cd_imagem_setor1" type="hidden" value="3">
 
@@ -66,7 +66,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[1]['imagem'] ) . '" />'; ?>
+                            <?php echo '<img width=100% src="data:image/jpeg;base64,' . base64_encode( $imagensSite[1]['imagem'] ) . '" />'; ?>
 
                             <input id="cd_imagem_setor2" name="cd_imagem_setor2" type="hidden" value="4">
 
@@ -88,7 +88,7 @@
                             <textarea class="form-control" id="servicoFoto02Descricao" name="servicoFoto02Descricao" placeholder="Digite o subtitulo" rows="4" cols="50"><?php echo $site['site_servico_foto_descricao_02']; ?></textarea>
                         </div>
                         <div class="col-md-6">
-                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[2]['imagem'] ) . '" />'; ?>
+                            <?php echo '<img width=100% src="data:image/jpeg;base64,' . base64_encode( $imagensSite[2]['imagem'] ) . '" />'; ?>
 
                             <input id="cd_imagem_setor3" name="cd_imagem_setor3" type="hidden" value="5">
 

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/servicos.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +58,7 @@
       <workItem from="1669567959696" duration="2623000" />
       <workItem from="1669572023654" duration="2160000" />
       <workItem from="1669576888977" duration="4161000" />
-      <workItem from="1669581739814" duration="6899000" />
+      <workItem from="1669581739814" duration="7823000" />
     </task>
     <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
       <created>1669521103821</created>
@@ -138,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669587160143</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="wip">
+      <created>1669589023938</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669589023938</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -43,7 +43,7 @@
                 <?php } ?>
 
                         <div class="col-md-4">
-                            <img class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:' . $foto['imagem_formato'] . ';base64,' . base64_encode( $foto['imagem'] ) . '"'; ?>>
+                            <img width=100% class="background-img center-block img-responsive" id="img360" <?php echo 'src="data:' . $foto['imagem_formato'] . ';base64,' . base64_encode( $foto['imagem'] ) . '"'; ?>>
 
                             <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-galeria.php?cd_imagem=<?php echo $foto['cd_imagem']; ?>&etapa=2">
                                 <div class="form-group">
