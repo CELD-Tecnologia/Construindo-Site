@@ -10,7 +10,7 @@ include_once("conexao.php");
 //Validação será feita em JS antes de enviar o método Post
 $usuario_nome = $_POST['usuario_nome'];
 $usuario_email = $_POST['usuario_email'];
-$idProfissao = $_POST['idProfissao'] ?? 1;
+$idProfissao = $_POST['idProfissao'] ?? null;
 $usuario_senha = $_POST['usuario_senha'];
 
 $usuario_senha = hash('whirlpool', $usuario_senha);
