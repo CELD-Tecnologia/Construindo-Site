@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-	if(empty($_SESSION['idSite'])) {
-		$_SESSION['idSite'] = $_GET['idSite'];
+	if(empty($_SESSION['cd_site'])) {
+		$_SESSION['cd_site'] = $_GET['cd_site'];
 	}
 	
 ?>
@@ -26,12 +26,19 @@
 	<body class="fixed-nav sticky-footer bg-dark" id="page-top">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-		<a class="navbar-brand" href="principal.php">Área de Edição - Site: <?php echo $_SESSION['idSite'] ?></a>
+		<a class="navbar-brand" href="index.php">Área de Edição - Site: <?php echo $_SESSION['cd_site'] ?></a>
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav navbar-sidenav scroll" id="exampleAccordion">
+
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Principal">
+					<a class="nav-link" href="index.php" >
+						<i class="fa fa-fw fa-dashboard"></i>
+						<span class="nav-link-text">Início</span>
+					</a>
+				</li>
 
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Principal">
 					<a class="principal nav-link" >
@@ -97,7 +104,7 @@
 	<div class="content-wrapper">
 		<div class="container-fluid">
             <div class="result">
-                Código do site: <?php echo $_SESSION['idSite']; ?>
+                Código do site: <?php echo $_SESSION['cd_site']; ?>
             </div>
         </div>
 	

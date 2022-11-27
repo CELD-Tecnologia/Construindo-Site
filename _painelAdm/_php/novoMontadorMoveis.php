@@ -14,7 +14,7 @@
     
     //inserir imagens na tabela de imagens
         //Recuperar o ID do site
-        $idSite = mysqli_insert_id($conn);
+        $cd_site = mysqli_insert_id($conn);
 
         //Favicon
         $idSetorImagem = 0;
@@ -29,7 +29,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //Banner 01
         $idSetorImagem = 1;
@@ -44,7 +44,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //Banner 02
         $idSetorImagem = 1;
@@ -59,7 +59,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //PRINCIPAL
         $idSetorImagem = 2;
@@ -74,7 +74,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //SERVICO 01
         $idSetorImagem = 3;
@@ -89,7 +89,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //SERVICO 02
         $idSetorImagem = 4;
@@ -104,7 +104,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //SERVICO 03
         $idSetorImagem = 5;
@@ -119,7 +119,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //QUEM SOMOS
         $idSetorImagem = 6;
@@ -134,7 +134,7 @@
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
 
         //GALERIA
         $idSetorImagem = 7;
@@ -150,7 +150,7 @@
         fclose($fp);
 
         for ($i = 1; $i <= 9; $i++) {
-            $sql = mysqli_query($conn, "INSERT INTO tbgaleria (idSite, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($idSite, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+            $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
         }
 
     echo '<meta http-equiv="refresh" content="0;url=../sites.php">';

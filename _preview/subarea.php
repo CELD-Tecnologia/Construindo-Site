@@ -1,10 +1,10 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
 	include_once("../_php/conexao.php");
-	$idSite = $_SESSION['idSite'];
+	$cd_site = $_SESSION['cd_site'];
 	$idAreaAtuacao = $_GET['idAreaAtuacao'];
 	
-	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, whats, telefone, facebook, instagram, email, qtImagem, cdCSS FROM sites WHERE idSite = " . $idSite);
+	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, whats, telefone, facebook, instagram, email, qtImagem, cdCSS FROM sites WHERE cd_site = " . $cd_site);
     while($row = mysqli_fetch_array($sql)){
 		$titulo = $row['titulo'];
 		$descricao = $row['descricao'];
@@ -19,16 +19,16 @@
 		$cdCSS = $row['cdCSS'];
 	}
 	
-	$sql = mysqli_query($conn, "SELECT idSite, nmAreaAtuacao, tituloAreaAtuacao, descricaoAreaAtuacao, keywordsAreaAtuacao FROM tbareaatuacao WHERE idAreaAtuacao = " . $idAreaAtuacao);
+	$sql = mysqli_query($conn, "SELECT cd_site, nmAreaAtuacao, tituloAreaAtuacao, descricaoAreaAtuacao, keywordsAreaAtuacao FROM tbareaatuacao WHERE idAreaAtuacao = " . $idAreaAtuacao);
     while($row = mysqli_fetch_array($sql)){
-		$idSiteVerificacao = $row['idSite'];
+		$cd_siteVerificacao = $row['cd_site'];
 		$nmAreaAtuacao = $row['nmAreaAtuacao'];
 		$tituloAreaAtuacao = $row['tituloAreaAtuacao'];
 		$descricaoAreaAtuacao = $row['descricaoAreaAtuacao'];
 		$keywordsAreaAtuacao = $row['keywordsAreaAtuacao'];
 	}
 	
-	if($idSite != $idSiteVerificacao){
+	if($cd_site != $cd_siteVerificacao){
 		echo "<script>alert('Sub Área Inválida!');</script>";
 		echo '<meta http-equiv="refresh" content="0;url='.$dominio.'.com.br/">';
 	}

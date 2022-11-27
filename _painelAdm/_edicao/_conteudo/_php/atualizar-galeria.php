@@ -34,8 +34,8 @@
             $conteudo = addslashes($conteudo);
             fclose($fp);
         
-            $queryInsercao = "INSERT INTO tbgaleria (idSite, idSetorImagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem, imagem) 
-            VALUES ('" . $_SESSION['idSite'] . "','7' ,'$tituloImagem','$dsImagem','$nome','$tamanho', '$tipo','$conteudo')";
+            $queryInsercao = "INSERT INTO tbgaleria (cd_site, idSetorImagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem, imagem) 
+            VALUES ('" . $_SESSION['cd_site'] . "','7' ,'$tituloImagem','$dsImagem','$nome','$tamanho', '$tipo','$conteudo')";
         
             mysqli_query($conn, $queryInsercao);
         }
@@ -45,7 +45,7 @@
         $idImagem = $_GET['idImagem'];
         $sql = mysqli_query($conn, "DELETE FROM tbgaleria 
                                     WHERE idImagem = $idImagem 
-                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND idSite = " . $_SESSION['idSite']);
+                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND cd_site = " . $_SESSION['cd_site']);
     }
 
     function editarImagem($conn, $idImagem) {
@@ -57,7 +57,7 @@
         $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                     SET {$dados}
                                     WHERE idImagem = $idImagem 
-                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND idSite = " . $_SESSION['idSite']);
+                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND cd_site = " . $_SESSION['cd_site']);
     }
 
 ?>

@@ -1,8 +1,8 @@
 <?php
     if(!isset($_SESSION)) { session_start(); }
-    $idSite = $_SESSION['idSite'];
+    $cd_site = $_SESSION['cd_site'];
 
-    if(empty($idSite)) {
+    if(empty($cd_site)) {
         //Site não selecionado, deve retornar a tela de gestão de sites
         //Aqui deverá ser inserida toda a segurança do editor, já que esta tela será executada sempre
     }
@@ -30,7 +30,7 @@
             break;
 
         case 2: //Banner
-            $dadosSite = 'idSite';
+            $dadosSite = 'cd_site';
             $setorImagem = ' idSetorImagem = 1 ';
             break;
 
@@ -45,7 +45,7 @@
             break;
 
         case 5: //Galeria
-            $dadosSite = 'idSite';
+            $dadosSite = 'cd_site';
             $setorImagem = ' idSetorImagem = 7 ';
             break;
 
@@ -62,11 +62,11 @@
 
     $PDO = new PDO('mysql:host=criadordesite.mysql.uhserver.com;dbname=criadordesite;charset=utf8', 'celdtecnologia', 'marinhaBrasil@1' );
 
-    $sql = "SELECT {$dadosSite} FROM sites WHERE idSite = '{$idSite}'";
+    $sql = "SELECT {$dadosSite} FROM sites WHERE cd_site = '{$cd_site}'";
     $result = $PDO->query( $sql );
     $site = $result->fetch();
 
-    $sql = "SELECT * FROM tbgaleria WHERE {$setorImagem} AND idSite = '{$idSite}'";
+    $sql = "SELECT * FROM tbgaleria WHERE {$setorImagem} AND cd_site = '{$cd_site}'";
     $result = $PDO->query( $sql );
 
     //Aqui define se retorna uma ou mais imagens na consulta

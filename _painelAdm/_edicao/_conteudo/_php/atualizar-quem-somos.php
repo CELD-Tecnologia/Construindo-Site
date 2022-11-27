@@ -15,7 +15,7 @@
         
     $sql = mysqli_query($conn, "UPDATE sites 
                                 SET {$dados}
-                                WHERE idSite = " . $_SESSION['idSite']);
+                                WHERE cd_site = " . $_SESSION['cd_site']);
 
     //Atualizando a imagem e dados do principal
     $imagem = $_FILES['imagem']['tmp_name'];
@@ -39,7 +39,7 @@
 
         $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                     SET {$dados}
-                                    WHERE idSetorImagem = 6 AND idSite = " . $_SESSION['idSite']);
+                                    WHERE idSetorImagem = 6 AND cd_site = " . $_SESSION['cd_site']);
     } else {
         $dados = "";
     }
@@ -50,7 +50,7 @@
 
     $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                     SET {$dados}
-                                    WHERE idSetorImagem = 6 AND idSite = " . $_SESSION['idSite']);
+                                    WHERE idSetorImagem = 6 AND cd_site = " . $_SESSION['cd_site']);
 
     $_SESSION['setor'] = 4;
     header("location: ../../index.php");

@@ -16,7 +16,7 @@
         
     $sql = mysqli_query($conn, "UPDATE sites 
                                 SET {$dados}
-                                WHERE idSite = " . $_SESSION['idSite']);
+                                WHERE cd_site = " . $_SESSION['cd_site']);
 
 $servicos = [1, 2, 3]; //Aqui podemos descidir quantos serviços terá no site. Hoje o BD só aceita 3 -> tentar mudar para uma constante
 foreach($servicos as $servico) {
@@ -45,7 +45,7 @@ foreach($servicos as $servico) {
 
             $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                         SET {$dados}
-                                        WHERE idSetorImagem = {$idSetorImagem} AND idSite = " . $_SESSION['idSite']);
+                                        WHERE idSetorImagem = {$idSetorImagem} AND cd_site = " . $_SESSION['cd_site']);
         } else {
             $dados = "";
         }
@@ -57,7 +57,7 @@ foreach($servicos as $servico) {
 
     $sql = mysqli_query($conn, "UPDATE tbgaleria 
                                     SET {$dados}
-                                    WHERE idSetorImagem = {$idSetorImagem} AND idSite = " . $_SESSION['idSite']);
+                                    WHERE idSetorImagem = {$idSetorImagem} AND cd_site = " . $_SESSION['cd_site']);
 
 }
 
