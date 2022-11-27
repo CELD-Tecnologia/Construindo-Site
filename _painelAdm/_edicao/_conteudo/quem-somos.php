@@ -21,11 +21,11 @@
                             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite['imagem'] ) . '" />'; ?>
                             <div class="form-group">
                                 <label class="control-label" for="exampleInputEmail1">&nbsp;Título da Imagem:</label>
-                                <input class="form-control" id="tituloImagem"	name="tituloImagem" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite['tituloImagem']; ?>">
+                                <input class="form-control" id="imagem_titulo"	name="imagem_titulo" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite['imagem_titulo']; ?>">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="exampleInputEmail1">Descrição da Imagem:</label>
-                                <textarea class="form-control" id="dsImagem" name="dsImagem" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite['dsImagem']; ?></textarea>
+                                <textarea class="form-control" id="imagem_descricao" name="imagem_descricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite['imagem_descricao']; ?></textarea>
                             </div>
                         </div>	
                         Alterar Imagem

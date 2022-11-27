@@ -17,8 +17,8 @@
     //Atualizando a imagem e dados da imagem
     $imagem = $_FILES['imagem']['tmp_name'];
     $tamanho = $_FILES['imagem']['size'];
-    $formatoImagem = $_FILES['imagem']['type'];
-    $nmOriginalImagem = $_FILES['imagem']['name'];
+    $imagem_formato = $_FILES['imagem']['type'];
+    $imagem_nome_original = $_FILES['imagem']['name'];
 
     if ( $imagem != "none" && $tamanho > 0 ) {
         $fp = fopen($imagem, "rb");
@@ -29,8 +29,8 @@
             
         $dados = "imagem            = '{$conteudo}',
                   imagem_tamanho    = '{$tamanho}',
-                  imagem_formato    = '{$formatoImagem}',
-                  imagem_nome_original  = '{$nmOriginalImagem}'
+                  imagem_formato    = '{$imagem_formato}',
+                  imagem_nome_original  = '{$imagem_nome_original}'
                 ";
 
         $sql = mysqli_query($conn, "UPDATE imagens 
@@ -40,8 +40,8 @@
         $dados = "";
     }
 
-    $dados .= " imagem_titulo      = '{$_POST['tituloImagem']}',
-                imagem_descricao   = '{$_POST['dsImagem']}'
+    $dados .= " imagem_titulo      = '{$_POST['imagem_titulo']}',
+                imagem_descricao   = '{$_POST['imagem_descricao']}'
             ";
 
     $sql = mysqli_query($conn, "UPDATE imagens 

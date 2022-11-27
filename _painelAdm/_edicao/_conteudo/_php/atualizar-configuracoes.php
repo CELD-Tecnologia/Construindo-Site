@@ -18,8 +18,8 @@
     //Atualizando a imagem e dados do principal
     $imagem = $_FILES['imagem']['tmp_name'];
     $tamanho = $_FILES['imagem']['size'];
-    $formatoImagem = $_FILES['imagem']['type'];
-    $nmOriginalImagem = $_FILES['imagem']['name'];
+    $imagem_formato = $_FILES['imagem']['type'];
+    $imagem_nome_original = $_FILES['imagem']['name'];
 
     if ( $imagem != "none" && $tamanho > 0 )
     {
@@ -31,24 +31,24 @@
             
         $dados = "  imagem            = '{$conteudo}',
                     tamanho           = '{$tamanho}',
-                    formatoImagem     = '{$formatoImagem}',
-                    nmOriginalImagem  = '{$nmOriginalImagem}'
+                    imagem_formato     = '{$imagem_formato}',
+                    imagem_nome_original  = '{$imagem_nome_original}'
                 ";
 
-        $sql = mysqli_query($conn, "UPDATE tbgaleria 
+        $sql = mysqli_query($conn, "UPDATE imagens 
                                     SET {$dados}
-                                    WHERE idSetorImagem = 0 AND cd_site = " . $_SESSION['cd_site']);
+                                    WHERE cd_imagem_setor = 0 AND cd_site = " . $_SESSION['cd_site']);
     } else {
         $dados = "";
     }
 
-    $dados .= " tituloImagem      = '{$_POST['tituloImagem']}',
-                dsImagem          = '{$_POST['dsImagem']}'
+    $dados .= " imagem_titulo      = '{$_POST['imagem_titulo']}',
+                imagem_descricao          = '{$_POST['imagem_descricao']}'
             ";
 
-    $sql = mysqli_query($conn, "UPDATE tbgaleria 
+    $sql = mysqli_query($conn, "UPDATE imagens 
                                     SET {$dados}
-                                    WHERE idSetorImagem = 0 AND cd_site = " . $_SESSION['cd_site']);
+                                    WHERE cd_imagem_setor = 0 AND cd_site = " . $_SESSION['cd_site']);
 
     $_SESSION['setor'] = 6;
     header("location: ../../index.php");

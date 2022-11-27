@@ -35,13 +35,13 @@
                     <p id="item<?php echo $servico; ?>">
                         <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite[$servico - 1]['imagem'] ) . '" />'; ?>
 
-                        <input id="idSetorImagem<?php echo $servico; ?>" name="idSetorImagem<?php echo $servico; ?>" type="hidden" value="<?php echo $imagensSite[$servico - 1]['idSetorImagem']; ?>">
+                        <input id="cd_imagem_setor<?php echo $servico; ?>" name="cd_imagem_setor<?php echo $servico; ?>" type="hidden" value="<?php echo $imagensSite[$servico - 1]['cd_imagem_setor']; ?>">
 
                         <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
-                        <input class="form-control" id="tituloImagem<?php echo $servico; ?>"	name="tituloImagem<?php echo $servico; ?>" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[$servico - 1]['tituloImagem']; ?>">
+                        <input class="form-control" id="imagem_titulo<?php echo $servico; ?>"	name="imagem_titulo<?php echo $servico; ?>" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite[$servico - 1]['imagem_titulo']; ?>">
 
                         <label class="control-label" for="exampleInputEmail1">Descrição:</label>
-                        <textarea class="form-control" id="dsImagem<?php echo $servico; ?>" name="dsImagem<?php echo $servico; ?>" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[$servico - 1]['dsImagem']; ?></textarea>
+                        <textarea class="form-control" id="imagem_descricao<?php echo $servico; ?>" name="imagem_descricao<?php echo $servico; ?>" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite[$servico - 1]['imagem_descricao']; ?></textarea>
 
                         <label class="control-label" for="exampleInputEmail1">&nbsp;Alterar imagem:</label>				
                         <input type="file" accept="image/*" name="imagem<?php echo $servico; ?>" class="form-control" id="inputPerfil"/>	

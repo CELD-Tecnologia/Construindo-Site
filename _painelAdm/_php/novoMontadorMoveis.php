@@ -17,140 +17,140 @@
         $cd_site = mysqli_insert_id($conn);
 
         //Favicon
-        $idSetorImagem = 0;
-        $tituloImagem = "Favicon";
-        $dsImagem = "Favicon";
-        $nmOriginalImagem = "favicon.jpg"; 
-        $tamanhoImagem = "27399"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 0;
+        $imagem_titulo = "Favicon";
+        $imagem_descricao = "Favicon";
+        $imagem_nome_original = "favicon.jpg"; 
+        $imagem_tamanho = "27399"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/favicon.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //Banner 01
-        $idSetorImagem = 1;
-        $tituloImagem = "Banner 01";
-        $dsImagem = "Banner 01";
-        $nmOriginalImagem = "banner01.jpg"; 
-        $tamanhoImagem = "242258"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 1;
+        $imagem_titulo = "Banner 01";
+        $imagem_descricao = "Banner 01";
+        $imagem_nome_original = "banner01.jpg"; 
+        $imagem_tamanho = "242258"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/banner01.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //Banner 02
-        $idSetorImagem = 1;
-        $tituloImagem = "Banner 02";
-        $dsImagem = "Banner 02";
-        $nmOriginalImagem = "banner02.jpg"; 
-        $tamanhoImagem = "301969"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 1;
+        $imagem_titulo = "Banner 02";
+        $imagem_descricao = "Banner 02";
+        $imagem_nome_original = "banner02.jpg"; 
+        $imagem_tamanho = "301969"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/banner02.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //PRINCIPAL
-        $idSetorImagem = 2;
-        $tituloImagem = "Logo";
-        $dsImagem = "Logo";
-        $nmOriginalImagem = "logo.jpg"; 
-        $tamanhoImagem = "27399"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 2;
+        $imagem_titulo = "Logo";
+        $imagem_descricao = "Logo";
+        $imagem_nome_original = "logo.jpg"; 
+        $imagem_tamanho = "27399"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/logo.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //SERVICO 01
-        $idSetorImagem = 3;
-        $tituloImagem = "Serviço 01";
-        $dsImagem = "Serviço 01";
-        $nmOriginalImagem = "servico01.jpg"; 
-        $tamanhoImagem = "25753"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 3;
+        $imagem_titulo = "Serviço 01";
+        $imagem_descricao = "Serviço 01";
+        $imagem_nome_original = "servico01.jpg"; 
+        $imagem_tamanho = "25753"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/servico01.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //SERVICO 02
-        $idSetorImagem = 4;
-        $tituloImagem = "Serviço 02";
-        $dsImagem = "Serviço 02";
-        $nmOriginalImagem = "servico02.jpg"; 
-        $tamanhoImagem = "28305"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 4;
+        $imagem_titulo = "Serviço 02";
+        $imagem_descricao = "Serviço 02";
+        $imagem_nome_original = "servico02.jpg"; 
+        $imagem_tamanho = "28305"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/servico02.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //SERVICO 03
-        $idSetorImagem = 5;
-        $tituloImagem = "Serviço 03";
-        $dsImagem = "Serviço 03";
-        $nmOriginalImagem = "servico03.jpg"; 
-        $tamanhoImagem = "17490"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 5;
+        $imagem_titulo = "Serviço 03";
+        $imagem_descricao = "Serviço 03";
+        $imagem_nome_original = "servico03.jpg"; 
+        $imagem_tamanho = "17490"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/servico03.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //QUEM SOMOS
-        $idSetorImagem = 6;
-        $tituloImagem = "Quem Somos";
-        $dsImagem = "Quem Somos";
-        $nmOriginalImagem = "quemsomos.jpg"; 
-        $tamanhoImagem = "27399"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 6;
+        $imagem_titulo = "Quem Somos";
+        $imagem_descricao = "Quem Somos";
+        $imagem_nome_original = "quemsomos.jpg"; 
+        $imagem_tamanho = "27399"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/quemsomos.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
-        $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+        $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
 
         //GALERIA
-        $idSetorImagem = 7;
-        $tituloImagem = "Galeria";
-        $dsImagem = "Galeria";
-        $nmOriginalImagem = "galeria.jpg"; 
-        $tamanhoImagem = "29246"; 
-        $formatoImagem = "image/jpeg"; 
+        $cd_imagem_setor = 7;
+        $imagem_titulo = "Galeria";
+        $imagem_descricao = "Galeria";
+        $imagem_nome_original = "galeria.jpg"; 
+        $imagem_tamanho = "29246"; 
+        $imagem_formato = "image/jpeg"; 
 
         $fp = fopen("_imagemMontador/galeria.jpg", "rb");
-        $imagem = fread($fp, $tamanhoImagem);
+        $imagem = fread($fp, $imagem_tamanho);
         $imagem = addslashes($imagem);
         fclose($fp);
 
         for ($i = 1; $i <= 9; $i++) {
-            $sql = mysqli_query($conn, "INSERT INTO tbgaleria (cd_site, idSetorImagem, imagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem) VALUES ($cd_site, $idSetorImagem, '$imagem', '$tituloImagem', '$dsImagem', '$nmOriginalImagem', '$tamanhoImagem', '$formatoImagem')");
+            $sql = mysqli_query($conn, "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato) VALUES ($cd_site, $cd_imagem_setor, '$imagem', '$imagem_titulo', '$imagem_descricao', '$imagem_nome_original', '$imagem_tamanho', '$imagem_formato')");
         }
 
     echo '<meta http-equiv="refresh" content="0;url=../sites.php">';

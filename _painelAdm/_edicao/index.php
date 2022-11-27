@@ -15,11 +15,11 @@
 		<meta name="author" content="CELD Tecnologia">
 		<title>Construindo Site | Editor</title>
 
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="css/sb-admin.css" rel="stylesheet">
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/sb-admin.css" rel="stylesheet">
 
 	</head>
 

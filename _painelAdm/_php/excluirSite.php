@@ -11,7 +11,7 @@
 	}
 
 	mysqli_query($conn, "DELETE from tbareaatuacao WHERE cd_site = $cd_site;");
-	mysqli_query($conn, "DELETE from tbgaleria WHERE cd_site = $cd_site;");
+	mysqli_query($conn, "DELETE from imagens WHERE cd_site = $cd_site;");
 	mysqli_query($conn, "DELETE from sites WHERE cd_site = $cd_site;");
 	mysqli_query($conn, "DELETE from sitescidade WHERE cd_site = $cd_site;");
 

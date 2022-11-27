@@ -3,17 +3,17 @@
     include_once("_conexao.php"); 
 
     $etapa = $_GET['etapa'];
-    $idImagem = $_GET['idImagem'];
+    $cd_imagem = $_GET['cd_imagem'];
     
     switch($etapa) {
         case 1:
             novaImagem($conn);
             break;
         case 2:
-            editarImagem($conn, $idImagem);
+            editarImagem($conn, $cd_imagem);
             break;
         case 3:
-            excluirImagem($conn, $idImagem);
+            excluirImagem($conn, $cd_imagem);
             break;        
     }
 
@@ -21,8 +21,8 @@
     header("location: ../../index.php");
 
     function novaImagem($conn) {
-        $tituloImagem   = $_POST['tituloImagem'];
-        $dsImagem       = $_POST['dsImagem'];
+        $imagem_titulo   = $_POST['imagem_titulo'];
+        $imagem_descricao       = $_POST['imagem_descricao'];
         $imagem         = $_FILES['imagem']['tmp_name'];
         $tamanho        = $_FILES['imagem']['size'];
         $tipo           = $_FILES['imagem']['type'];
@@ -34,30 +34,30 @@
             $conteudo = addslashes($conteudo);
             fclose($fp);
         
-            $queryInsercao = "INSERT INTO tbgaleria (cd_site, idSetorImagem, tituloImagem, dsImagem, nmOriginalImagem, tamanhoImagem, formatoImagem, imagem) 
-            VALUES ('" . $_SESSION['cd_site'] . "','7' ,'$tituloImagem','$dsImagem','$nome','$tamanho', '$tipo','$conteudo')";
+            $queryInsercao = "INSERT INTO imagens (cd_site, cd_imagem_setor, imagem_titulo, imagem_descricao, imagem_nome_original, imagem_tamanho, imagem_formato, imagem) 
+            VALUES ('" . $_SESSION['cd_site'] . "','7' ,'$imagem_titulo','$imagem_descricao','$nome','$tamanho', '$tipo','$conteudo')";
         
             mysqli_query($conn, $queryInsercao);
         }
     }
 
-    function excluirImagem($conn, $idImagem) {
-        $idImagem = $_GET['idImagem'];
-        $sql = mysqli_query($conn, "DELETE FROM tbgaleria 
-                                    WHERE idImagem = $idImagem 
-                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND cd_site = " . $_SESSION['cd_site']);
+    function excluirImagem($conn, $cd_imagem) {
+        $cd_imagem = $_GET['cd_imagem'];
+        $sql = mysqli_query($conn, "DELETE FROM imagens 
+                                    WHERE cd_imagem = $cd_imagem 
+                                        AND cd_imagem_setor = 7 AND cd_imagem = {$cd_imagem} AND cd_site = " . $_SESSION['cd_site']);
     }
 
-    function editarImagem($conn, $idImagem) {
-        $idImagem = $_GET['idImagem'];
-        $dados = "  tituloImagem    = '{$_POST['tituloImagem']}',
-                    dsImagem        = '{$_POST['dsImagem']}'
+    function editarImagem($conn, $cd_imagem) {
+        $cd_imagem = $_GET['cd_imagem'];
+        $dados = "  imagem_titulo    = '{$_POST['imagem_titulo']}',
+                    imagem_descricao        = '{$_POST['imagem_descricao']}'
                 ";
 
-        $sql = mysqli_query($conn, "UPDATE tbgaleria 
+        $sql = mysqli_query($conn, "UPDATE imagens 
                                     SET {$dados}
-                                    WHERE idImagem = $idImagem 
-                                        AND idSetorImagem = 7 AND idImagem = {$idImagem} AND cd_site = " . $_SESSION['cd_site']);
+                                    WHERE cd_imagem = $cd_imagem 
+                                        AND cd_imagem_setor = 7 AND cd_imagem = {$cd_imagem} AND cd_site = " . $_SESSION['cd_site']);
     }
 
 ?>

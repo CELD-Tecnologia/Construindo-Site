@@ -21,15 +21,15 @@
 $servicos = [1, 2, 3]; //Aqui podemos descidir quantos serviços terá no site. Hoje o BD só aceita 3 -> tentar mudar para uma constante
 foreach($servicos as $servico) {
 
-    $idSetorImagem = $_POST['idSetorImagem' . $servico];
+    $cd_imagem_setor = $_POST['cd_imagem_setor' . $servico];
 
     if(!empty($_FILES['imagem' . $servico])) {
 
         //Atualizando a imagem do serviço
         $imagem = $_FILES['imagem' . $servico]['tmp_name'];
         $tamanho = $_FILES['imagem' . $servico]['size'];
-        $formatoImagem = $_FILES['imagem' . $servico]['type'];
-        $nmOriginalImagem = $_FILES['imagem' . $servico]['name'];
+        $imagem_formato = $_FILES['imagem' . $servico]['type'];
+        $imagem_nome_original = $_FILES['imagem' . $servico]['name'];
 
         if ( $imagem != "none" && $tamanho > 0 ) {
             $fp = fopen($imagem, "rb");
@@ -38,26 +38,26 @@ foreach($servicos as $servico) {
             fclose($fp);
                 
             $dados = "  imagem            = '{$conteudo}',
-                        tamanhoImagem     = '{$tamanho}',
-                        formatoImagem     = '{$formatoImagem}',
-                        nmOriginalImagem  = '{$nmOriginalImagem}'
+                        imagem_tamanho     = '{$tamanho}',
+                        imagem_formato     = '{$imagem_formato}',
+                        imagem_nome_original  = '{$imagem_nome_original}'
                     ";
 
-            $sql = mysqli_query($conn, "UPDATE tbgaleria 
+            $sql = mysqli_query($conn, "UPDATE imagens 
                                         SET {$dados}
-                                        WHERE idSetorImagem = {$idSetorImagem} AND cd_site = " . $_SESSION['cd_site']);
+                                        WHERE cd_imagem_setor = {$cd_imagem_setor} AND cd_site = " . $_SESSION['cd_site']);
         } else {
             $dados = "";
         }
     }
 
-    $dados .= " tituloImagem      = '{$_POST['tituloImagem' . $servico]}',
-                dsImagem          = '{$_POST['dsImagem' . $servico]}'
+    $dados .= " imagem_titulo      = '{$_POST['imagem_titulo' . $servico]}',
+                imagem_descricao          = '{$_POST['imagem_descricao' . $servico]}'
             ";
 
-    $sql = mysqli_query($conn, "UPDATE tbgaleria 
+    $sql = mysqli_query($conn, "UPDATE imagens 
                                     SET {$dados}
-                                    WHERE idSetorImagem = {$idSetorImagem} AND cd_site = " . $_SESSION['cd_site']);
+                                    WHERE cd_imagem_setor = {$cd_imagem_setor} AND cd_site = " . $_SESSION['cd_site']);
 
 }
 
