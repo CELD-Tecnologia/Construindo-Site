@@ -21,11 +21,11 @@
                             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $imagensSite['imagem'] ) . '" />'; ?>
                             <div class="form-group">
                                 <label class="control-label" for="exampleInputEmail1">&nbsp;Título da Imagem:</label>
-                                <input class="form-control" id="tituloImagem"	name="tituloImagem" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite['tituloImagem']; ?>">
+                                <input class="form-control" id="tituloImagem"	name="tituloImagem" placeholder="Digite o título desejado" type="text" value="<?php echo $imagensSite['imagem_titulo']; ?>">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="exampleInputEmail1">Descrição da Imagem:</label>
-                                <textarea class="form-control" id="dsImagem" name="dsImagem" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite['dsImagem']; ?></textarea>
+                                <textarea class="form-control" id="dsImagem" name="dsImagem" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $imagensSite['imagem_descricao']; ?></textarea>
                             </div>
                         </div>	
                         <input type="file" accept="image/*" name="imagem" class="form-control" id="inputPerfil"/>								
@@ -35,15 +35,15 @@
             <div class="col-md-6">						
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
-                    <input class="form-control" id="principalTitulo"	name="principalTitulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['principalTitulo']; ?>">
+                    <input class="form-control" id="principalTitulo"	name="principalTitulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['site_principal_titulo']; ?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">Sub Título:</label>
-                    <textarea class="form-control" id="principalSubtitulo" name="principalSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['principalSubtitulo']; ?></textarea>
+                    <textarea class="form-control" id="principalSubtitulo" name="principalSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['site_principal_subtitulo']; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="exampleInputEmail1">Descrição:</label>
-                    <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['principalDescricao']; ?></textarea>
+                    <textarea class="form-control" id="principalDescricao" name="principalDescricao" placeholder="Digite a descrição desejada" rows="4" cols="50"><?php echo $site['site_principal_descricao']; ?></textarea>
                 </div>
                 <button id="btnAlterar" submi class="btn btn-primary btn-lg">Salvar alterações</button>
                 <div class="result"></div>
