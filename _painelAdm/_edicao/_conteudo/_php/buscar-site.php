@@ -50,7 +50,7 @@
             break;
 
         case 6: //Configurações
-            $dadosSite = 'titulo, descricao, keyword, cdCSS';
+            $dadosSite = 'site_google_analytics, site_titulo, site_descricao, site_keyword, cd_site_css';
             $setorImagem = ' cd_imagem_setor = 0 ';
             break;
 
@@ -75,8 +75,5 @@
     } else {
         $imagensSite = $result->fetchAll();
     }
-
-    //var_dump('<pre>' . print_r($imagensSite,1) . '</pre>');
-    //die();
 
 ?>

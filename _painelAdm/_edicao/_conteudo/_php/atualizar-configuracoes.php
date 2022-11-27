@@ -5,10 +5,11 @@
     //Atualizando o site
     //Falta as validações nas strings
 
-    $dados = "  cdCSS       = '{$_POST['cdCSS']}',
-                titulo      = '{$_POST['titulo']}',
-                descricao   = '{$_POST['descricao']}',
-                keyword     = '{$_POST['keyword']}'
+    //site_google_analytics
+    $dados = "  cd_site_css      = '{$_POST['cdCSS']}',
+                site_titulo      = '{$_POST['titulo']}',
+                site_descricao   = '{$_POST['descricao']}',
+                site_keyword     = '{$_POST['keyword']}'
             ";
         
     $sql = mysqli_query($conn, "UPDATE sites 
@@ -30,7 +31,7 @@
 
             
         $dados = "  imagem            = '{$conteudo}',
-                    tamanho           = '{$tamanho}',
+                    imagem_tamanho    = '{$tamanho}',
                     imagem_formato     = '{$imagem_formato}',
                     imagem_nome_original  = '{$imagem_nome_original}'
                 ";
@@ -43,7 +44,7 @@
     }
 
     $dados .= " imagem_titulo      = '{$_POST['imagem_titulo']}',
-                imagem_descricao          = '{$_POST['imagem_descricao']}'
+                imagem_descricao   = '{$_POST['imagem_descricao']}'
             ";
 
     $sql = mysqli_query($conn, "UPDATE imagens 
