@@ -197,7 +197,7 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<img src="http://construindosite.com.br/<?php echo $site; ?>/imagens/cartoesGeral.jpg" alt="Montador de Móveis - SC | Aceitamos todos os Cartões" title="Montador de Móveis - SC" class="img-responsive">
+					<img src="http://construindosite.com.br/_images/cartoesGeral.jpg" alt="Aceitamos todos os Cartões" title="Aceitamos todos os Cartões" class="img-responsive">
 				</div>
 			</div>
 		</div>

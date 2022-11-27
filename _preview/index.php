@@ -46,7 +46,7 @@
 		$cdCSS = $row['site_css_caminho'];
 	}
 
-    $querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_site = " . $_SESSION['cd_site'];
+    $querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_site = " . $cd_site;
     $resultado = mysqli_query($conn, $querySelecionaPorCodigo);
     $imagens = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
     while($row = mysqli_fetch_array($resultado)){
@@ -391,7 +391,7 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<img src="../../../_images/cartoesGeral.jpg" class="img-responsive">
+					<img src="http://construindosite.com.br/_images/cartoesGeral.jpg" class="img-responsive">
 				</div>
 			</div>
 		</div>
