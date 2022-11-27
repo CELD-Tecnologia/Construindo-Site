@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-principal.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-principal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-quem-somos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-servicos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/excluirSite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/novoMontadorMoveis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_php/seguranca.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_php/seguranca.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_php/criarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/criarUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/_php/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_preview/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/_preview/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_preview/subarea.php" beforeDir="false" afterPath="$PROJECT_DIR$/_preview/subarea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="ATUALIZAÇÃO BANCO DE DADOS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,8 +43,16 @@
       <updated>1668347306492</updated>
       <workItem from="1668347313804" duration="35000" />
       <workItem from="1669502779267" duration="223000" />
-      <workItem from="1669514689156" duration="5989000" />
+      <workItem from="1669514689156" duration="6355000" />
     </task>
+    <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
+      <created>1669521103821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669521103821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,5 +68,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ATUALIZAÇÃO BANCO DE DADOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="ATUALIZAÇÃO BANCO DE DADOS" />
   </component>
 </project>
