@@ -45,7 +45,7 @@
             break;
 
         case 5: //Galeria
-            $dadosSite = 'cd_site';
+            $dadosSite = 'site_galeria_titulo, site_galeria_subtitulo';
             $setorImagem = ' cd_imagem_setor = 7 ';
             break;
 

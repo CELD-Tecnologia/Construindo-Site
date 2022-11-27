@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="291ce42c-6e95-4537-a287-706be2849292" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-configuracoes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-galeria.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/atualizar-galeria.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/_php/buscar-site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/configuracoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/configuracoes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/galeria.php" beforeDir="false" afterPath="$PROJECT_DIR$/_painelAdm/_edicao/_conteudo/galeria.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
       <workItem from="1669567959696" duration="2623000" />
       <workItem from="1669572023654" duration="2160000" />
       <workItem from="1669576888977" duration="4161000" />
-      <workItem from="1669581739814" duration="3398000" />
+      <workItem from="1669581739814" duration="4513000" />
     </task>
     <task id="LOCAL-00001" summary="ATUALIZAÇÃO BANCO DE DADOS">
       <created>1669521103821</created>
@@ -118,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669584499080</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="wip">
+      <created>1669585220934</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669585220934</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

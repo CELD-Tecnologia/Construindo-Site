@@ -14,7 +14,15 @@
             break;
         case 3:
             excluirImagem($conn, $cd_imagem);
-            break;        
+            break;
+        case 4:
+            $dados = "  site_galeria_titulo     = '{$_POST['principalTitulo']}',
+                        site_galeria_subtitulo  = '{$_POST['principalSubtitulo']}'
+            ";
+
+            $sql = mysqli_query($conn, "UPDATE sites 
+                                SET {$dados}
+                                WHERE cd_site = " . $_SESSION['cd_site']);
     }
 
     $_SESSION['setor'] = 5;
