@@ -141,24 +141,54 @@
 							<h4 class="text-center" style="color:black;">Login</h4>
 						</div>
 						<div class="modal-body">
-							<form role="form" method="post" action="_php/login.php">
-							 	
-								<div class="form-group">
-									<label for="exampleInputEmail1">E-mail:</label>
-									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="email" >
-								</div>
-								
-								<div class="form-group">
-									<label for="exampleInputEmail1">Senha:</label>
-									<input style="color:black;" id="usuario_senha" name="usuario_senha" placeholder="Senha" type="password" >
-								</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">E-mail:</label>
+								<input style="color:black;" id="usuario_login_email" name="usuario_login_email" placeholder="E-mail de Acesso" type="email" >
+							</div>
 							
-								<button type="submit" class="button primary">Entrar</button>
-								
-							</form>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Senha:</label>
+								<input style="color:black;" id="usuario_login_senha" name="usuario_login_senha" placeholder="Senha" type="password" >
+							</div>
+
+							<div class="form-group">
+								<label class="retornoLogin"></label>
+							</div>
+						
+							<button class="button primary BtEntrar">Entrar</button>
 						</div>
 					</div>
 				</div>
 			</div>
 	</body>
 </html>
+
+<script>
+	$(".BtEntrar").on("click", function() {
+
+		var login = $('#usuario_login_email').val();
+		var senha = $('#usuario_login_senha').val();
+
+		$.ajax({
+			url: "_php/login.php",
+            data: {
+                login: login,
+				senha: senha,
+            },
+            dataType: "json",
+            type: "POST",
+			beforeSend: function () {
+				$(".retornoLogin").html('Efetuando o login...');
+			},
+			success: function(result) {
+				if(result == 'erro') {
+					$(".retornoLogin").html("E-mail ou senha inválida.");
+				}
+			},
+			error: function(result){
+				$(".retornoLogin").html("Falha durante o login.");
+			}
+		});
+		
+	});
+</script>
