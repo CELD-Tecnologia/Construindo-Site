@@ -183,6 +183,8 @@
 			success: function(result) {
 				if(result == 'erro') {
 					$(".retornoLogin").html("E-mail ou senha inválida.");
+				} else if(result == 'sucesso') {
+					window.location.href = "_painelAdm";
 				}
 			},
 			error: function(result){
