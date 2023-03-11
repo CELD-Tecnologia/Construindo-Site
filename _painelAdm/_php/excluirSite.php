@@ -4,16 +4,16 @@
 
 	$cd_site = $_GET['cd_site'];
 
-	$sql = mysqli_query($conn, "SELECT idAreaAtuacao FROM tbareaatuacao WHERE cd_site = " . $cd_site);
+	$sql = mysqli_query($conn, "SELECT cd_site_area_atuacao FROM sites_area_atuacao WHERE cd_site = " . $cd_site);
     while($row = mysqli_fetch_array($sql)){
-		$idAreaAtuacao = $row['idAreaAtuacao'];
-		mysqli_query($conn, "DELETE from tbsubareaatuacao WHERE idAreaAtuacao = $idAreaAtuacao");
+		$idAreaAtuacao = $row['cd_site_area_atuacao'];
+		mysqli_query($conn, "DELETE from sites_area_atuacao_sub WHERE cd_site_area_atuacao = $idAreaAtuacao");
 	}
 
-	mysqli_query($conn, "DELETE from tbareaatuacao WHERE cd_site = $cd_site;");
+	mysqli_query($conn, "DELETE from sites_area_atuacao WHERE cd_site = $cd_site;");
 	mysqli_query($conn, "DELETE from imagens WHERE cd_site = $cd_site;");
 	mysqli_query($conn, "DELETE from sites WHERE cd_site = $cd_site;");
-	mysqli_query($conn, "DELETE from sitescidade WHERE cd_site = $cd_site;");
+	mysqli_query($conn, "DELETE from sites_cidades WHERE cd_site = $cd_site;");
 
 	echo '<meta http-equiv="refresh" content="0;url=../sites.php">';
 

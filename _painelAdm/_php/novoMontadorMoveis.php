@@ -8,9 +8,9 @@
 	$idProfissao = 1; //Montador de Móveis
 	$dominio = "montador123";
 
-    //cadastrar site na tabela do site
-        //verificar se domínio ja existe - inserir em JS no modal da criação
-        $sql = mysqli_query($conn, "INSERT INTO sites (cd_usuario, dtCriacao, site) VALUES ($cd_usuario, '$dtCriacao', '$dominio')");
+    //VERIFICAR MELHOR COMO VAI FUNCIONAR A QUESTÃO DE DOMÍNIOS, SE PODE OU NÃO REPETIR
+    //O IDEAL EH NÃO DEIXAR REPETIR, TER UMA VALIDAÇÃO EM JS NO MODAL DE CRIAÇÃO E TAMBÉM NO BANCO
+    $sql = mysqli_query($conn, "INSERT INTO sites (cd_usuario, site_data_criacao, site_dominio) VALUES ($cd_usuario, '$dtCriacao', '$dominio')");
     
     //inserir imagens na tabela de imagens
         //Recuperar o ID do site
