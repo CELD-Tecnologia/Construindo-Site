@@ -1,0 +1,12 @@
+1 -> Arrumar a parte que abre o preview no caminho certo, com o cd_template no caminho.
+
+2 -> Alterar para cor, onde seleciona o CSS no editor, a seleção do template vai ser feita no futuro.
+
+3 -> Concluir os testes da criação e edição dos arquivos pelo update-config.php.
+
+4 -> Salvar o update-config.php no servidor para não perder e realizar mais testes com ele.
+
+5 -> Criar um usuário somente leitura para o banco de dados e atualizar o arquivo conexão.php com este usuário.
+
+6 -> Atualizar o update-config.php com o usuário somente leitura e criando o update.php lendo o arquivo conexão.php, 
+    caso seja melhor, caso contrário, deixa assim msm, pq no futuro algum outro site possa utilizar algum outro banco.

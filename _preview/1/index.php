@@ -1,8 +1,20 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-	include_once("../_php/conexao.php");
-	$cd_site = $_GET['cd_site'];
-	$_SESSION['cd_site'] = $cd_site;
+
+	if(file_exists("conexao.php")) {
+		include_once("conexao.php");
+	} else {
+		include_once("../_php/conexao.php");
+	}
+
+	if(file_exists("config.php")) {
+		require("config.php");
+		$cd_site = $config['cd_site'];
+	} else if(!empty($_GET['cd_site'])) {
+		$cd_site = $_GET['cd_site'];
+	} else if(!empty($_SESSION['cd_site'])) {
+		$cd_site = $_SESSION['cd_site'];
+	}
 
 	$sql = mysqli_query($conn, "SELECT sites.*, sites_css.*
 								FROM sites 
