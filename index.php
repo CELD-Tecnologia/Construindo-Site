@@ -184,7 +184,7 @@
 				if(result == 'erro') {
 					$(".retornoLogin").html("E-mail ou senha inválida.");
 				} else if(result == 'sucesso') {
-					window.location.href = "_painelAdm";
+					window.location.href = "_painel-adm";
 				}
 			},
 			error: function(result){
