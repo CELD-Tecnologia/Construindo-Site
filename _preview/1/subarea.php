@@ -4,7 +4,7 @@
 	if(file_exists("conexao.php")) {
 		include_once("conexao.php");
 	} else {
-		include_once("../_php/conexao.php");
+		include_once("../../_php/conexao.php");
 	}
 
 	if(file_exists("config.php")) {
@@ -17,50 +17,65 @@
 	}
 
 	$idAreaAtuacao = $_GET['idAreaAtuacao'];
-	
-	$sql = mysqli_query($conn, "SELECT titulo, descricao, keyword, site, whats, telefone, facebook, instagram, email, qtImagem, cdCSS FROM sites WHERE cd_site = " . $cd_site);
+
+	$sql = mysqli_query($conn, "SELECT site_titulo, site_descricao, site_keyword, site_dominio, site_whats, site_telefone, site_facebook, site_instagram, site_email, sites_css.site_css_caminho 
+								FROM sites 
+								INNER JOIN sites_css ON sites_css.cd_site_css = sites.cd_site_css
+								WHERE cd_site = " . $cd_site);
     while($row = mysqli_fetch_array($sql)){
-		$titulo = $row['titulo'];
-		$descricao = $row['descricao'];
-		$keyword = $row['keyword'];
-		$site = $row['site'];
-		$whats = $row['whats'];
-		$telefone = $row['telefone'];
-		$facebook = $row['facebook'];
-		$instagram = $row['instagram'];
-		$email = $row['email'];
-		$qtImagem = $row['qtImagem'];
-		$cdCSS = $row['cdCSS'];
+		$titulo = $row['site_titulo'];
+		$descricao = $row['site_descricao'];
+		$keyword = $row['site_keyword'];
+		$site = $row['site_dominio'];
+		$whats = $row['site_whats'];
+		$telefone = $row['site_telefone'];
+		$facebook = $row['site_facebook'];
+		$instagram = $row['site_instagram'];
+		$email = $row['site_email'];
+		$cdCSS = $row['site_css_caminho'];
+	}
+
+	$sql = mysqli_query($conn, "SELECT sites_area_atuacao.* FROM sites_area_atuacao WHERE cd_site_area_atuacao = " . $idAreaAtuacao);
+    while($row = mysqli_fetch_array($sql)){
+		$siteAreaAtuacao = $row;
 	}
 	
-	$sql = mysqli_query($conn, "SELECT cd_site, nmAreaAtuacao, tituloAreaAtuacao, descricaoAreaAtuacao, keywordsAreaAtuacao FROM tbareaatuacao WHERE idAreaAtuacao = " . $idAreaAtuacao);
-    while($row = mysqli_fetch_array($sql)){
-		$cd_siteVerificacao = $row['cd_site'];
-		$nmAreaAtuacao = $row['nmAreaAtuacao'];
-		$tituloAreaAtuacao = $row['tituloAreaAtuacao'];
-		$descricaoAreaAtuacao = $row['descricaoAreaAtuacao'];
-		$keywordsAreaAtuacao = $row['keywordsAreaAtuacao'];
-	}
-	
-	if($cd_site != $cd_siteVerificacao){
-		echo "<script>alert('Sub Área Inválida!');</script>";
+	if($cd_site != $siteAreaAtuacao['cd_site']){
+		echo "<script>alert('Área de atuação inválida!');</script>";
 		echo '<meta http-equiv="refresh" content="0;url='.$dominio.'.com.br/">';
 	}
+
+	$querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_imagem_setor IN (0, 1) AND cd_site = " . $cd_site;
+    $resultado = mysqli_query($conn, $querySelecionaPorCodigo);
+    $imagens = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
+    while($row = mysqli_fetch_array($resultado)){
+       $imagens[$row['cd_imagem_setor']][] = $row;
+    }
+
+    $favicon = current($imagens[0]);
+    $banners = $imagens[1];
+
+	$sql = "SELECT * FROM sites_area_atuacao_sub WHERE cd_site_area_atuacao = " . $idAreaAtuacao;
+    $resultado = mysqli_query($conn, $sql);
+    $areasAtuacaoSub = array();
+    while($row = mysqli_fetch_array($resultado)){
+        $areasAtuacaoSub[$row['site_area_atuacao_sub_coluna']][] = $row;
+    }
 
 ?>
 
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title><?php echo $tituloAreaAtuacao; ?></title>
-		<meta name="keyword" content="<?php echo $keywordsAreaAtuacao; ?>">
-		<meta name="description" content="<?php echo $descricaoAreaAtuacao; ?>">
+		<title><?php echo $siteAreaAtuacao['site_area_atuacao_titulo']; ?></title>
+		<meta name="keyword" content="<?php echo $siteAreaAtuacao['site_area_atuacao_descricao']; ?>">
+		<meta name="description" content="<?php echo $siteAreaAtuacao['site_area_atuacao_keyword']; ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="https://construindosite.com.br/_css/<?php echo $cdCSS; ?>/estilo.css" rel="stylesheet" type="text/css">
-		<link rel="icon" href="https://construindosite.com.br/<?php echo $site; ?>/imagens/<?php echo $qtImagem . "_"; ?>favicon.png" type="image/x-icon" />
+		<link rel="icon" <?php echo 'href="data:image/jpeg;base64,' . base64_encode( $favicon['imagem'] ) . '"';?> type="image/x-icon" />
 
 	</head>
   
@@ -75,7 +90,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo $dominio; ?>"><span><?php echo $titulo; ?></span></a>
+					<a class="navbar-brand" href="#"><span><?php echo $titulo; ?></span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<script>
@@ -103,13 +118,19 @@
 		
 		<div class="carousel hidden-sm hidden-xs slide" id="fullcarousel-example" data-interval="5000" data-ride="carousel">
 			<div id="home" class="carousel-inner">
-				<div class="item active">
-					<img src="http://construindosite.com.br/<?php echo $site; ?>/imagens/<?php echo $qtImagem . "_"; ?>banner01.jpg">
-				</div>
+
+				<?php
+					$active = "active";
+                    foreach ($banners as $banner):
+				?>
+					<div class="item <?php echo $active ?>">
+						<?php echo '<img src="data:' . $banner['imagem_formato'] . ';base64,' . base64_encode( $banner['imagem'] ) . '" />'; ?>
+					</div>
+				<?php
+					$active = "";
+					endforeach;
+				?>
 				
-				<div class="item">
-					<img src="http://construindosite.com.br/<?php echo $site; ?>/imagens/<?php echo $qtImagem . "_"; ?>banner02.jpg">
-				</div>
 			</div>
 			
 			<a class="left carousel-control" href="#fullcarousel-example" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
@@ -118,13 +139,17 @@
 		
 		<div class="carousel hidden-lg hidden-md slide" id="fullcarousel-exampleMobile" data-interval="5000" data-ride="carousel">
 			<div id="homeMobile" class="carousel-inner">
-				<div class="item active">
-					<img src="http://construindosite.com.br/<?php echo $site; ?>/imagens/<?php echo $qtImagem . "_"; ?>banner01.jpg">
-				</div>
-				
-				<div class="item">
-					<img src="http://construindosite.com.br/<?php echo $site; ?>/imagens/<?php echo $qtImagem . "_"; ?>banner02.jpg">
-				</div>
+                <?php
+                $active = "active";
+                foreach ($banners as $banner):
+                    ?>
+                    <div class="item <?php echo $active ?>">
+                        <?php echo '<img src="data:' . $banner['imagem_formato'] . ';base64,' . base64_encode( $banner['imagem'] ) . '" />'; ?>
+                    </div>
+                    <?php
+                    $active = "";
+                endforeach;
+                ?>
 			</div>
 			
 			<a class="left carousel-control" href="#fullcarousel-example" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
@@ -139,67 +164,39 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h1 class="text-center"><?php echo $tituloAreaAtuacao; ?>
+						<h1 class="text-center"><?php echo $siteAreaAtuacao['site_area_atuacao_titulo']; ?>
 							<small>
 							<br>
-							<br><?php echo $descricaoAreaAtuacao; ?></small>
+							<br><?php echo $siteAreaAtuacao['site_area_atuacao_descricao']; ?></small>
 						</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div class="section">
+		<div class="section" id="atuacao">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idSubAreaAtuacao, nmSubAreaAtuacao FROM tbsubareaatuacao WHERE coluna = 1 AND idAreaAtuacao = " . $idAreaAtuacao);
-						while($row = mysqli_fetch_array($sql)){
-							$idSubAreaAtuacao = $row['idSubAreaAtuacao'];
-							$nmSubAreaAtuacao = $row['nmSubAreaAtuacao'];
-						?>
-							<h5>
-								<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmSubAreaAtuacao; ?></a>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
-					
-					<div class="col-md-4 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idSubAreaAtuacao, nmSubAreaAtuacao FROM tbsubareaatuacao WHERE coluna = 2 AND idAreaAtuacao = " . $idAreaAtuacao);
-						while($row = mysqli_fetch_array($sql)){
-							$idSubAreaAtuacao = $row['idSubAreaAtuacao'];
-							$nmSubAreaAtuacao = $row['nmSubAreaAtuacao'];
-						?>
-							<h5>
-								<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmSubAreaAtuacao; ?></a>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
-					
-					<div class="col-md-4 estilo-link">
-						<?php
-						$sql = mysqli_query($conn, "SELECT idSubAreaAtuacao, nmSubAreaAtuacao FROM tbsubareaatuacao WHERE coluna = 3 AND idAreaAtuacao = " . $idAreaAtuacao);
-						while($row = mysqli_fetch_array($sql)){
-							$idSubAreaAtuacao = $row['idSubAreaAtuacao'];
-							$nmSubAreaAtuacao = $row['nmSubAreaAtuacao'];
-						?>
-							<h5>
-								<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $nmSubAreaAtuacao; ?></a>
-							</h5>
-						<?php
-							}
-						?>
-					</div>
-				</div>
+					<?php $rows = array(1, 2, 3, 4); ?>
+					<?php foreach($rows as $row): ?>
+						<div class="col-md-3 estilo-link">
+							<?php
+							if(!empty($areasAtuacaoSub[$row])):
+								foreach($areasAtuacaoSub[$row] as $areaAtuacaoSub):
+							?>
+								<h5>
+									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacaoSub['site_area_atuacao_sub_nome']; ?></a>
+								</h5>
+							<?php
+								endforeach;
+							endif;
+							?>
+						</div>
+					<?php endforeach; ?>
+                </div>
 			</div>
 		</div>
-		
+
 		<div class="section">
 			<div class="container">
 				<div class="row">

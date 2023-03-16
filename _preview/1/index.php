@@ -4,7 +4,7 @@
 	if(file_exists("conexao.php")) {
 		include_once("conexao.php");
 	} else {
-		include_once("../_php/conexao.php");
+		include_once("../../_php/conexao.php");
 	}
 
 	if(file_exists("config.php")) {
@@ -15,6 +15,8 @@
 	} else if(!empty($_SESSION['cd_site'])) {
 		$cd_site = $_SESSION['cd_site'];
 	}
+
+	$_SESSION['cd_site'] = $cd_site;
 
 	$sql = mysqli_query($conn, "SELECT sites.*, sites_css.*
 								FROM sites 
@@ -316,79 +318,28 @@
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-3 estilo-link">
-						<?php
-                        if(!empty($areasAtuacao[1])):
-                            foreach($areasAtuacao[1] as $areaAtuacao):
-                        ?>
-							<h5>
-								<?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-									<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-								<?php }else{ ?>
-									<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-								<?php } ?>
-							</h5>
-						<?php
-							endforeach;
-                        endif;
-						?>
-					</div>
-
-                    <div class="col-md-3 estilo-link">
-                        <?php
-                        if(!empty($areasAtuacao[2])):
-                            foreach($areasAtuacao[2] as $areaAtuacao):
-                        ?>
-                            <h5>
-                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php }else{ ?>
-                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php } ?>
-                            </h5>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </div>
-
-                    <div class="col-md-3 estilo-link">
-                        <?php
-                        if(!empty($areasAtuacao[3])):
-                            foreach($areasAtuacao[3] as $areaAtuacao):
-                        ?>
-                            <h5>
-                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php }else{ ?>
-                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php } ?>
-                            </h5>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </div>
-
-                    <div class="col-md-3 estilo-link">
-                        <?php
-                        if(!empty($areasAtuacao[4])):
-                            foreach($areasAtuacao[4] as $areaAtuacao):
-                        ?>
-                            <h5>
-                                <?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
-                                    <a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php }else{ ?>
-                                    <a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
-                                <?php } ?>
-                            </h5>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </div>
-
-				</div>
+					<?php $rows = array(1, 2, 3, 4); ?>
+					<?php foreach($rows as $row): ?>
+						<div class="col-md-3 estilo-link">
+							<?php
+							if(!empty($areasAtuacao[$row])):
+								foreach($areasAtuacao[$row] as $areaAtuacao):
+							?>
+								<h5>
+									<?php if($areaAtuacao['site_area_atuacao_possui_sub'] == 1) {?>
+										<a target="_blank" href="subarea.php?idAreaAtuacao=<?php echo $areaAtuacao['cd_site_area_atuacao']; ?>&descricao=<?php echo $areaAtuacao['site_area_atuacao_nome'] . " " . $telefone . " " . $whats; ?>"><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+									<?php }else{ ?>
+										<a><i class="-circle fa fa-fw fa-lg fa-map-marker"></i><?php echo $areaAtuacao['site_area_atuacao_nome']; ?></a>
+									<?php } ?>
+								</h5>
+							<?php
+								endforeach;
+							endif;
+							?>
+						</div>
+					<?php endforeach; ?>
+					
+                </div>
 			</div>
 		</div>
 		
@@ -396,7 +347,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h4>Aceitamos Cartões Débito e Crédito - ajustar foto</h4>
+						<h4>Aceitamos Cartões Débito e Crédito</h4>
 						<hr>
 					</div>
 				</div>
