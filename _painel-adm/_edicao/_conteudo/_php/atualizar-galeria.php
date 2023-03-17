@@ -3,7 +3,7 @@
     include_once("_conexao.php"); 
 
     $etapa = $_GET['etapa'];
-    $cd_imagem = $_GET['cd_imagem'];
+    $cd_imagem = $_GET['cd_imagem'] ?? '';
     
     switch($etapa) {
         case 1:
@@ -16,8 +16,8 @@
             excluirImagem($conn, $cd_imagem);
             break;
         case 4:
-            $dados = "  site_galeria_titulo     = '{$_POST['principalTitulo']}',
-                        site_galeria_subtitulo  = '{$_POST['principalSubtitulo']}'
+            $dados = "  site_galeria_titulo     = '{$_POST['galeriaTitulo']}',
+                        site_galeria_subtitulo  = '{$_POST['galeriaSubtitulo']}'
             ";
 
             $sql = mysqli_query($conn, "UPDATE sites 

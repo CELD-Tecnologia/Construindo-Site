@@ -17,7 +17,7 @@
 
             <div class="col-md-12 text-center">
 
-                <form enctype="multipart/form-data" role="form" method="post" action="_conteudo/_php/atualizar-galeria.php?cd_imagem=<?php echo $foto['cd_imagem']; ?>&etapa=2">
+                <form method="post" action="_conteudo/_php/atualizar-galeria.php?etapa=4">
                     <div class="form-group">
                         <label class="control-label" for="exampleInputEmail1">&nbsp;Título:</label>
                         <input class="form-control" id="galeriaTitulo"	name="galeriaTitulo" placeholder="Digite o título desejado" type="text" value="<?php echo $site['site_galeria_titulo']; ?>">
@@ -26,7 +26,7 @@
                         <label class="control-label" for="exampleInputEmail1">Sub Título:</label>
                         <textarea class="form-control" id="galeriaSubtitulo" name="galeriaSubtitulo" placeholder="Digite o subtítulo desejado" rows="4" cols="50"><?php echo $site['site_galeria_subtitulo']; ?></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default">Editar</button>
+                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
                 </form>
                 <hr>
             </div>
