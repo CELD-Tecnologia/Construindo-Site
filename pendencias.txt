@@ -30,3 +30,5 @@ Arrumar a parte financeira para receber, bloquear e desbloquear automaticamente.
     subir o código que está no preview, em atualizar template, caso a gente faça alguma atualização la, já funcionará para todos os clientes que utilizem este template.
 
 14 -> Criar uma rotina para cadastrar o update.php no cronjob para estar sempre atualizado.
+
+15 -> Toda a parte de edição, virar uma página apenas edicao.php com vários modais, e um form único, assim fará apenas uma consulta e um update no banco.
