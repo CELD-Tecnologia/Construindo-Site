@@ -1,4 +1,7 @@
 <?php
+
+    $PDO = new PDO('mysql:host=criadordesite.mysql.uhserver.com;dbname=criadordesite;charset=utf8', 'celdtecnologia', 'marinhaBrasil@1' );
+
     if(!isset($_SESSION)) { session_start(); }
     $cd_site = $_SESSION['cd_site'];
 
@@ -49,9 +52,14 @@
             $setorImagem = ' cd_imagem_setor = 7 ';
             break;
 
+            /*
+
+            */
         case 6: //Configurações
-            $dadosSite = 'site_google_analytics, site_titulo, site_descricao, site_keyword, cd_site_css';
+            $dadosSite = 'site_google_analytics, site_titulo, site_descricao, site_keyword, cd_site_css, site_email, site_dominio, site_vencimento_dominio, site_nome_exibicao, site_whats, site_telefone, site_facebook, site_instagram, site_area_atuacao_titulo, site_area_atuacao_subtitulo, site_area_atuacao_frase';
             $setorImagem = ' cd_imagem_setor = 0 ';
+            $result = $PDO->query("SELECT sites_css.* FROM sites_css");
+            $sites_css = $result->fetchAll();
             break;
 
         default: //Sem distinção
@@ -59,8 +67,6 @@
             $setorImagem = ' 1 ';
             break;
     }
-
-    $PDO = new PDO('mysql:host=criadordesite.mysql.uhserver.com;dbname=criadordesite;charset=utf8', 'celdtecnologia', 'marinhaBrasil@1' );
 
     $sql = "SELECT {$dadosSite} FROM sites WHERE cd_site = '{$cd_site}'";
     $result = $PDO->query( $sql );

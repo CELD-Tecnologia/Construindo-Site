@@ -9,8 +9,20 @@
     $dados = "  cd_site_css      = '{$_POST['cdCSS']}',
                 site_titulo      = '{$_POST['titulo']}',
                 site_descricao   = '{$_POST['descricao']}',
-                site_keyword     = '{$_POST['keyword']}'
+                site_keyword     = '{$_POST['keyword']}',
+                site_email     = '{$_POST['site_email']}',
+                site_dominio     = '{$_POST['site_dominio']}',
+                site_nome_exibicao     = '{$_POST['site_nome_exibicao']}',
+                site_whats     = '{$_POST['site_whats']}',
+                site_telefone     = '{$_POST['site_telefone']}',
+                site_facebook     = '{$_POST['site_facebook']}',
+                site_instagram     = '{$_POST['site_instagram']}',
+                site_area_atuacao_titulo     = '{$_POST['site_area_atuacao_titulo']}',
+                site_area_atuacao_subtitulo     = '{$_POST['site_area_atuacao_subtitulo']}',
+                site_area_atuacao_frase     = '{$_POST['site_area_atuacao_frase']}'
             ";
+
+            //var_dump($dados); die();
         
     $sql = mysqli_query($conn, "UPDATE sites 
                                 SET {$dados}
