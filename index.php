@@ -10,7 +10,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
 		
-		<title>Construindo Site | Sua presença on-line</title>
+		<title>Construindo Site 02 | Sua presença on-line</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<link rel="stylesheet" href="_assets/css/main.css"/>
