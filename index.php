@@ -1,4 +1,8 @@
-<?php if(isset($_SESSION)) { session_destroy(); } ?>
+<?php 
+	if(!empty($_SESSION)) { 
+		session_destroy();
+	} 
+?>
 
 <!DOCTYPE HTML>
 <html lang="pt-br">

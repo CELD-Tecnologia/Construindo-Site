@@ -1,19 +1,19 @@
 <?php
-	if(!isset($_SESSION)) { session_start(); }
-	include_once("../_php/conexao.php");
-
-    $where = '1';
-    if($_SESSION['usuario_tipo'] == '1') {
-        $where = "cd_usuario = {$_SESSION['cd_usuario']}";
-    }
+	require("_php/validacao-geral.php");
 
     $sites = array();
-    $sql = mysqli_query($conn, "select site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio, cd_template from sites where {$where}") or die(mysqli_error());
+	$where = "1";
+
+	if($_SESSION['usuario_tipo'] == '1') { 
+		$where .= " AND cd_usuario = {$_SESSION['cd_usuario']}";
+	}
+
+    $sql = mysqli_query($conn, "SELECT site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio, cd_template FROM sites WHERE {$where}") or die(mysqli_error());
     while ($row = mysqli_fetch_array($sql)){
         $sites[] = $row;
     }
-
 ?>
+
 <html lang="pt-br">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
