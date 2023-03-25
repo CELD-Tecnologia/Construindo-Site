@@ -9,7 +9,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
-		
 		<title>Construindo Site | Sua presença on-line</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
@@ -27,9 +26,7 @@
 					<section id="banner">
 						<div class="inner">
 							<h2>Construindo Site</h2>
-							<p>Construa seu próprio site de forma<br />
-							 simples, rápida e prática.<br/><br/>
-							Divulgue seus serviços!<a href="#"></a>!</p>
+							<p>Construa seu próprio site de forma<br />simples, rápida e prática.<br/><br/>Divulgue seus serviços!<a href="#"></a>!</p>
 							<ul class="actions special">
 								<li><a data-toggle="modal" data-target="#novoSite" class="button primary">Crie seu site!</a></li>
 								<li><a data-toggle="modal" data-target="#login" class="button fit">Entrar</a></li>
@@ -42,9 +39,7 @@
 						<section class="spotlight">
 							<div class="image"><img src="_images/plataforma.jpg" alt="" /></div><div class="content">
 								<h2>Somos uma plataforma de construção de sites</h2>
-								<p>Com a nossa plataforma você poderá criar o seu próprio site e divulgar o seu negócio na internet.
-								O Construindo Site oferece ferramentas intuitivas e objetivas, facilitando ao máximo a criação do seu site sem a necessidade de conhecimentos
-								técnicos na área de programação.</p>
+								<p>Com a nossa plataforma você poderá criar o seu próprio site e divulgar o seu negócio na internet. O Construindo Site oferece ferramentas intuitivas e objetivas, facilitando ao máximo a criação do seu site sem a necessidade de conhecimentos técnicos na área de programação.</p>
 							</div>
 						</section>
 						<section class="spotlight">
@@ -106,22 +101,22 @@
 							<form role="form" method="post" action="_php/criarUsuario.php">
 								
 								<div class="form-group">
-									<label for="exampleInputEmail1">Qual o seu nome?</label>
+									<label>Qual o seu nome?</label>
 									<input style="color:black;" id="usuario_nome" name="usuario_nome" placeholder="Digite Seu Nome" type="text" >
 								</div>
 								
 								<div class="form-group">
-									<label for="exampleInputEmail1">E-mail:</label>
+									<label>E-mail:</label>
 									<input style="color:black;" id="usuario_email" name="usuario_email" placeholder="E-mail de Acesso" type="email" >
 								</div>
 								
 								<div class="form-group">
-									<label for="exampleInputEmail1">Senha:</label>
+									<label>Senha:</label>
 									<input style="color:black;" id="usuario_senha" name="usuario_senha" placeholder="Senha de Usuário" type="password" >
 								</div>
 
 								<div class="form-group">
-									<label for="exampleInputEmail1">Repita a senha:</label>
+									<label>Repita a senha:</label>
 									<input style="color:black;" id="usuario_senhaConfirmar" name="usuario_senhaConfirmar" placeholder="Senha de Usuário" type="password" >
 								</div>
 							
@@ -142,12 +137,12 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="exampleInputEmail1">E-mail:</label>
+								<label>E-mail:</label>
 								<input style="color:black;" id="usuario_login_email" name="usuario_login_email" placeholder="E-mail de Acesso" type="email" >
 							</div>
 							
 							<div class="form-group">
-								<label for="exampleInputEmail1">Senha:</label>
+								<label>Senha:</label>
 								<input style="color:black;" id="usuario_login_senha" name="usuario_login_senha" placeholder="Senha" type="password" >
 							</div>
 
@@ -168,6 +163,16 @@
 
 		var login = $('#usuario_login_email').val();
 		var senha = $('#usuario_login_senha').val();
+
+		if(login == '') {
+			$(".retornoLogin").html('Digite um e-mail válido.');
+			return;
+		}
+
+		if(senha == '') {
+			$(".retornoLogin").html('Digite uma senha válida.');
+			return;
+		}
 
 		$.ajax({
 			url: "_php/login.php",
