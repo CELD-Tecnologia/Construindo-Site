@@ -1,8 +1,6 @@
 <?php
 	if(!isset($_SESSION)) { session_start(); }
-	if(empty($_SESSION['cd_site'])) {
-		$_SESSION['cd_site'] = $_GET['cd_site'];
-	}
+	$_SESSION['cd_site'] = $_GET['cd_site'];
 	
 ?>
 <html lang="pt-br">
