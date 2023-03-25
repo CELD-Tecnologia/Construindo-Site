@@ -131,11 +131,8 @@
 											<thead>
 												<tr>
 													<th style="width: 10%">Código</th>
-													<th style="width: 30%">Site</th>
-													<th></th>
-													<th></th>
-													<th></th>
-													<th style="width: 60%">Ações</th>
+													<th style="width: 40%">Site</th>
+													<th style="width: 50%">Ações</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -147,9 +144,6 @@
 															<br />
 															<small>Criado em <?php echo date('d/m/Y', strtotime($site['site_data_criacao'])) ; ?></small>
 														</td>
-														<td></td>
-														<td class="project_progress"></td>
-														<td></td>
 														<td>
 															<a target="_blank" href="http://<?php echo $site['site_dominio']; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
 															<a target="_blank" href="../preview/<?php echo $site['cd_template']; ?>?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
@@ -262,9 +256,6 @@
 							"<br />" +
 							"<small>" + "Criado em " + result['data_criacao'] + "</small>" +
 						"</td>" +
-						"<td></td>" +
-						"<td></td>" +
-						"<td></td>" +
 						"<td>" +
 							"<a target=\"_blank\" href=\"http://" + dominio + ".com.br\" class=\"btn btn-primary btn-\"><i class=\"fa fa-external-link\"></i> Ver Site </a>" +
 							"<a target=\"_blank\" href=\"../preview/" + result['template'] + "?cd_site=" + result['cd_site'] + "\" class=\"btn btn-primary btn-xs\"><i class=\"fa fa-external-link\"></i> Preview </a>" +

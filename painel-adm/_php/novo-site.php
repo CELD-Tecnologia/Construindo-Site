@@ -166,7 +166,7 @@
 	$resposta = array(
 		'resposta' => 'sucesso',
 		'cd_site' => $cd_site,
-		'data_criacao' => date('d/m/Y', strtotime($site['site_data_criacao'])),
+		'data_criacao' => date('d/m/Y', strtotime($dtCriacao)),
 		'template' => '1'
 	);
 
