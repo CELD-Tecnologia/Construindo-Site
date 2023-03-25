@@ -170,7 +170,7 @@
 			return;
 		}
 
-		if(login == '') {
+		if(!validateEmail(login)) {
 			$(".retornoCadastro").html('Digite um e-mail válido.');
 			return;
 		}
@@ -216,7 +216,7 @@
 		var login = $('#usuario_login_email').val();
 		var senha = $('#usuario_login_senha').val();
 
-		if(login == '') {
+		if(!validateEmail(login)) {
 			$(".retornoLogin").html('Digite um e-mail válido.');
 			return;
 		}
@@ -250,4 +250,10 @@
 		});
 		
 	});
+
+	function validateEmail(email) {
+		var re = /\S+@\S+\.\S+/;
+		return re.test(email);
+	}
+
 </script>
