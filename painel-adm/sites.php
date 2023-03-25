@@ -12,6 +12,8 @@
     while ($row = mysqli_fetch_array($sql)) {
         $sites[] = $row;
     }
+
+	$primeiroNome = explode(" ", $_SESSION['usuario_nome'])[0];
 ?>
 
 <html lang="pt-br">
@@ -47,7 +49,7 @@
 							</div>
 							<div class="profile_info">
 								<span>Bem-vindo,</span>
-								<h2>Sr(a) <?php echo $_SESSION['usuario_nome']; ?></h2>
+								<h2>Sr(a) <?php echo $primeiroNome; ?></h2>
 							</div>
 						</div>
 
@@ -64,12 +66,11 @@
 											<li><a href="sites.php">Meu Site</a></li>	
 										</ul>
 									</li>
-                  
 								</ul>
 							</div>    
 						</div>
 
-						<!-- /menu footer buttons -> menu da parte debaixo da tela, verificar o que fazer com estes itens primeiros -->
+						<?php //Precisa incluir os links nestes itens quando estes estiverem prontos ?>
 						<div class="sidebar-footer hidden-small">
 							<a data-toggle="tooltip" data-placement="top" title="Config.">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -84,7 +85,6 @@
 								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 							</a>
 						</div>
-						<!-- /menu footer buttons -->
 					</div>
 				</div>
 
@@ -97,7 +97,7 @@
 							<ul class=" navbar-right">
 								<li class="nav-item dropdown open" style="padding-left: 15px;">
 									<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-										<img src="images/img.jpg" alt="">Sr(a) <?php echo $_SESSION['usuario_nome']; ?>
+										<img src="images/img.jpg" alt="">Sr(a) <?php echo $primeiroNome; ?>
 									</a>
 									<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">									  
 										<a class="dropdown-item"  href="_php/logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
@@ -138,16 +138,14 @@
 													  <th style="width: 60%">Ações</th>
 												</tr>
 											</thead>
-											<?php
-                                                foreach ($sites as $site):
-											?>
+											<?php foreach ($sites as $site): ?>
 												<tbody>
 													<tr>
 														<td><?php echo $site['cd_site']; ?></td>
 														<td>
 															<a><?php echo $site['site_nome_exibicao']; ?></a>
 															<br />
-															<small>Criado <?php echo $site['site_data_criacao']; ?></small>
+															<small>Criado <?php echo date('d/m/Y', strtotime($site['site_data_criacao'])) ; ?></small>
 														</td>
 														<td></td>
 														<td class="project_progress"></td>
@@ -156,7 +154,7 @@
 															<a target="_blank" href="http://<?php echo $site['site_dominio']; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
 															<a target="_blank" href="../preview/<?php echo $site['cd_template']; ?>?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
 															<a target="_blank" href="../painel-adm/_edicao/index.php?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                                                            <?php if($site['site_status'] == '0'): ?>
+                                                            <?php if($site['site_status'] == '0' || $site['site_status'] == '5'): ?>
                                                                 <a href="_php/excluirSite.php?cd_site=<?php echo $site['cd_site']; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
                                                             <?php endif; ?>
 														</td>
