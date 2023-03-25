@@ -265,6 +265,7 @@
 					"</tr>";
 
 					$(".sites").append(linha);
+					$('#novo-site').modal('hide');
 
 				} else {
 					$(".retornoCriacaoSite").html(result['mensagem']);
