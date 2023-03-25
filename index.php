@@ -175,8 +175,8 @@
 			return;
 		}
 
-		if(senha == '') {
-			$(".retornoCadastro").html('Digite uma senha válida.');
+		if(senha.length < 6) {
+			$(".retornoCadastro").html('Digite uma senha válida com 6 caracteres.');
 			return;
 		}
 

@@ -10,7 +10,7 @@
     $usuario_email = $_POST['login'];
 	$usuario_senha = $_POST['senha'];
 
-    if($usuario_nome == '' || $usuario_email == '' || $usuario_senha == '') {
+    if($usuario_nome == '' || $usuario_email == '' || (strlen($usuario_senha) < 6)) {
         $resposta = array(
             'resposta' => 'erro',
             'mensagem' => 'Informe todos os campos corretamente.'
