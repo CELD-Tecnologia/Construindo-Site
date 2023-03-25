@@ -5,14 +5,14 @@
   args can be one of the following:
     id - null (default)
     class - "bd-example" (default)
-    optional: hide_preview - disabled (default)
+    optional: hidepreview - disabled (default)
     optional: hide_markup - disabled (default)
 {%- endcomment -%}
 
 {%- assign id = include.id -%}
 {%- assign class = include.class -%}
 
-{%- if include.hide_preview == null -%}
+{%- if include.hidepreview == null -%}
 <div{% if id %} id="{{ id }}"{% endif %} class="bd-example{% if class %} {{ class }}{% endif %}">
   {{- include.content -}}
 </div>

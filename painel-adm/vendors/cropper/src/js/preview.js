@@ -10,7 +10,7 @@
         var $this = $(this);
 
         // Save the original size for recover
-        $this.data(DATA_PREVIEW, {
+        $this.data(DATApreview, {
           width: $this.width(),
           height: $this.height(),
           html: $this.html()
@@ -34,12 +34,12 @@
     resetPreview: function () {
       this.$preview.each(function () {
         var $this = $(this);
-        var data = $this.data(DATA_PREVIEW);
+        var data = $this.data(DATApreview);
 
         $this.css({
           width: data.width,
           height: data.height
-        }).html(data.html).removeData(DATA_PREVIEW);
+        }).html(data.html).removeData(DATApreview);
       });
     },
 
@@ -68,7 +68,7 @@
 
       this.$preview.each(function () {
         var $this = $(this);
-        var data = $this.data(DATA_PREVIEW);
+        var data = $this.data(DATApreview);
         var originalWidth = data.width;
         var originalHeight = data.height;
         var newWidth = originalWidth;

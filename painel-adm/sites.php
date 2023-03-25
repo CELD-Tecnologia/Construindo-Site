@@ -154,8 +154,8 @@
 														<td></td>
 														<td>
 															<a target="_blank" href="http://<?php echo $site['site_dominio']; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
-															<a target="_blank" href="../_preview/<?php echo $site['cd_template']; ?>?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
-															<a target="_blank" href="../_painel-adm/_edicao/index.php?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+															<a target="_blank" href="../preview/<?php echo $site['cd_template']; ?>?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
+															<a target="_blank" href="../painel-adm/_edicao/index.php?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
                                                             <?php if($site['site_status'] == '0'): ?>
                                                                 <a href="_php/excluirSite.php?cd_site=<?php echo $site['cd_site']; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
                                                             <?php endif; ?>

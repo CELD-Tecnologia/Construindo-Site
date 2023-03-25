@@ -45,7 +45,7 @@
   var REGEXP_DATA_URL_JPEG = /^data\:image\/jpeg.*;base64,/;
 
   // Data keys
-  var DATA_PREVIEW = 'preview';
+  var DATApreview = 'preview';
   var DATA_ACTION = 'action';
 
   // Actions

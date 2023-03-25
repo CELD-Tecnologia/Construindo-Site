@@ -22,7 +22,7 @@ $_SESSION['cd_usuario'] = mysqli_insert_id($conn);
 
 if(empty($_SESSION['cd_usuario'])) {
     //erro no cadastro
-    echo '<meta http-equiv="refresh" content="0;url=../_painel-adm/logoff.php">';
+    echo '<meta http-equiv="refresh" content="0;url=../painel-adm/logoff.php">';
 }
 
 $_SESSION['usuario_nome'] = $usuario_nome;
@@ -40,5 +40,5 @@ $_SESSION['usuario_tipo'] = '1';
  * Verificar também se pegaremos os dados como CPF para poder formalizar o cadastro, no momento o cadastro esta funcionando normalmente
  */
 
-echo '<meta http-equiv="refresh" content="0;url=../_painel-adm">';
+echo '<meta http-equiv="refresh" content="0;url=../painel-adm">';
 ?>
