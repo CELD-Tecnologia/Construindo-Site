@@ -122,30 +122,30 @@
 							<div class="col-md-12">
 								<div class="x_panel">
 									<div class="col-md-12">
-										<a href="_php/criarSite.php" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Novo Site </a>
+										<a href="#" data-toggle="modal" data-target="#novo-site" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Novo Site </a>
 									</div>
 									
 									<div class="x_content">										
 										<p>Aqui você pode editar e visualizar os seus sites</p>
-										<table class="table table-striped projects">
+										<table class="table table-striped sites">
 											<thead>
 												<tr>
 													<th style="width: 10%">Código</th>
-													  <th style="width: 30%">Site</th>
-													  <th></th>
-													  <th></th>
-													  <th></th>
-													  <th style="width: 60%">Ações</th>
+													<th style="width: 30%">Site</th>
+													<th></th>
+													<th></th>
+													<th></th>
+													<th style="width: 60%">Ações</th>
 												</tr>
 											</thead>
-											<?php foreach ($sites as $site): ?>
-												<tbody>
+											<tbody>
+												<?php foreach ($sites as $site): ?>
 													<tr>
 														<td><?php echo $site['cd_site']; ?></td>
 														<td>
 															<a><?php echo $site['site_nome_exibicao']; ?></a>
 															<br />
-															<small>Criado <?php echo date('d/m/Y', strtotime($site['site_data_criacao'])) ; ?></small>
+															<small>Criado em <?php echo date('d/m/Y', strtotime($site['site_data_criacao'])) ; ?></small>
 														</td>
 														<td></td>
 														<td class="project_progress"></td>
@@ -159,8 +159,8 @@
                                                             <?php endif; ?>
 														</td>
 													</tr>
-												</tbody>
-											<?php endforeach; ?>
+												<?php endforeach; ?>
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -185,5 +185,104 @@
 		<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 		
 		<script src="build/js/custom.min.js"></script>
+
+		<div class="modal fade" id="novo-site">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Criando um novo site</h4>
+						<button type="button" class="close" data-dismiss="modal">×</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label><strong>Nome para exibição:</strong></label>
+							<input style="color:black;" class="form-control" id="site_nome_exibicao" name="site_nome_exibicao" placeholder="Digite um nome para exibição" type="text" >
+						</div>
+
+						<div class="form-group">
+							<label><strong>Domínio:</strong><br><small>Digite sem "www" e sem ".com.br"</small></label>
+							<input style="color:black;" class="form-control" id="site_dominio" name="site_dominio" placeholder="Digite o domínio do site" type="text" >
+						</div>
+
+						<div class="form-group">
+							<label class="enderecoNovoSite"></label>
+						</div>
+
+						<div class="form-group">
+							<strong><label style="color:black;" class="retornoCriacaoSite"></label></strong>
+						</div>
+					
+						<button class="btn btn-primary btn-xs BtCriarSite">Criar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
+
+<script>
+	$("#site_dominio").keyup(function() {
+		$(".enderecoNovoSite").html("http://www." + $(this).val() + ".com.br");
+	});
+
+	$(".BtCriarSite").on("click", function() {
+
+		var dominio = $('#site_dominio').val();
+		var nome = $('#site_nome_exibicao').val();
+
+		if(nome == '') {
+			$(".retornoCriacaoSite").html('Digite um nome para exibição do site.');
+			return;
+		}
+
+		if(dominio == '') {
+			$(".retornoCriacaoSite").html('Digite um domínio válido.');
+			return;
+		}
+
+		$.ajax({
+			url: "_php/novo-site.php",
+			data: {
+				nome: nome,
+				dominio: dominio,
+			},
+			dataType: "json",
+			type: "POST",
+			beforeSend: function () {
+				$(".retornoCriacaoSite").html('Criando...');
+			},
+			success: function(result) {
+				if(result['resposta'] == 'sucesso') {
+					$(".retornoCriacaoSite").html("Site criado com sucesso.");
+
+					var linha = "<tr>" +
+						"<td>" + result['cd_site'] + "</td>" +
+						"<td>" +
+							"<a>" + nome + "</a>" +
+							"<br />" +
+							"<small>" + "Criado em " + result['data_criacao'] + "</small>" +
+						"</td>" +
+						"<td></td>" +
+						"<td></td>" +
+						"<td></td>" +
+						"<td>" +
+							"<a target=\"_blank\" href=\"http://" + dominio + ".com.br\" class=\"btn btn-primary btn-\"><i class=\"fa fa-external-link\"></i> Ver Site </a>" +
+							"<a target=\"_blank\" href=\"../preview/" + result['template'] + "?cd_site=" + result['cd_site'] + "\" class=\"btn btn-primary btn-xs\"><i class=\"fa fa-external-link\"></i> Preview </a>" +
+							"<a target=\"_blank\" href=\"../painel-adm/_edicao/index.php?cd_site=" + result['cd_site'] + "\" class=\"btn btn-info btn-xs\"><i class=\"fa fa-pencil\"></i> Editar </a>" +
+							"<a href=\"_php/excluirSite.php?cd_site=" + result['cd_site'] + "\"  class=\"btn btn-danger btn-xs\"><i class=\"fa fa-trash-o\"></i> Excluir </a>" +
+						"</td>" +
+					"</tr>";
+
+					$(".sites").append(linha);
+
+				} else {
+					$(".retornoCriacaoSite").html(result['mensagem']);
+				}
+			},
+			error: function(){
+				$(".retornoCriacaoSite").html("Erro ao criar o novo site.");
+			}
+		});
+
+	});
+</script>
