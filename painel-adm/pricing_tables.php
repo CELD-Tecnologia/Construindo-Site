@@ -77,7 +77,7 @@
 							<a data-toggle="tooltip" data-placement="top" title="Ver">
 								<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 							</a>
-							<a data-toggle="tooltip" data-placement="top" title="Sair" href="logoff.php">
+							<a data-toggle="tooltip" data-placement="top" title="Sair" href="_php/logoff.php">
 								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 							</a>
 						</div>
@@ -98,7 +98,7 @@
 										<img src="images/img.jpg" alt="">Sr(a) Usuário(a) <!--inserir php chamando nome do usuário-->
 									</a>
 									<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">							  
-										<a class="dropdown-item"  href="logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
+										<a class="dropdown-item"  href="_php/logoff.php"><i class="fa fa-sign-out pull-right"></i> Sair</a>
 									</div>
 								</li>
   
