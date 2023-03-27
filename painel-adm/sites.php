@@ -4,7 +4,7 @@
     $sites = array();
 	$where = "1";
 
-	if($_SESSION['usuario_tipo'] == '1') { 
+	if($_SESSION['usuario_tipo'] != '2') { 
 		$where .= " AND cd_usuario = {$_SESSION['cd_usuario']}";
 	}
 
