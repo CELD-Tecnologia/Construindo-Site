@@ -16,5 +16,10 @@
 	mysqli_query($conn, "DELETE from sites_cidades WHERE cd_site = $cd_site;");
 
 	echo '<meta http-equiv="refresh" content="0;url=../sites.php">';
-
+	/*
+	CRIAR UMA FUNC QUE FAÇA A EXCLUSÃO DO SITE, PRECISA VERIFICAR SE:
+		-> AS COBRANÇAS ESTÃO ATRELADAS AO SITE
+		-> EXISTE OUTROS ITENS ATRELADOS AO SITE, ALÉM DA COBRANÇA PARA PERMITIR QUE SEJA EXCLUÍDO
+		-> SE NÃO PUDER EXCLUIR, PENSAR NUMA FORMA DE PERMITIR A EXCLUSÃO, DE MODO A NÃO OCUPAR MUITO O BD
+	*/
 ?>
