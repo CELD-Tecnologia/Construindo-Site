@@ -9,7 +9,7 @@
 	$cd_usuario = $_SESSION['cd_usuario'];
 
 	$cd_site = 0;
-	$sql = mysqli_query($conn, "SELECT cd_site FROM sites WHERE site_dominio = '" . $dominio . "'") or die(mysqli_error());
+	$sql = mysqli_query($conn, "SELECT cd_site FROM sites WHERE site_dominio = '" . $dominio . "'") or die();
 	while($row = mysqli_fetch_array($sql)){
 		$cd_site = $row['cd_site'];
 	}

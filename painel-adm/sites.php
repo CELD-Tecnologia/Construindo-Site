@@ -8,7 +8,7 @@
 		$where .= " AND cd_usuario = {$_SESSION['cd_usuario']}";
 	}
 
-    $sql = mysqli_query($conn, "SELECT site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio, cd_template FROM sites WHERE {$where}") or die(mysqli_error());
+    $sql = mysqli_query($conn, "SELECT site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio, cd_template FROM sites WHERE {$where}") or die();
     while ($row = mysqli_fetch_array($sql)) {
         $sites[] = $row;
     }
