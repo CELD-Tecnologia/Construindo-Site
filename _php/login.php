@@ -9,7 +9,7 @@
 	$usuario_senha = $_POST['senha'];
 
 	$usuario_senha = hash('whirlpool', $usuario_senha);
-	$sql = mysqli_query($conn, "select cd_usuario, usuario_nome, usuario_email, usuario_tipo from usuarios where usuario_email = '" . $usuario_email . "' and usuario_senha = '" . $usuario_senha . "'") or die(mysqli_error());
+	$sql = mysqli_query($conn, "select cd_usuario, usuario_nome, usuario_email, usuario_tipo from usuarios where usuario_email = '" . $usuario_email . "' and usuario_senha = '" . $usuario_senha . "'") or die();
 	while($row = mysqli_fetch_array($sql)){
 		$_SESSION['cd_usuario'] = $row['cd_usuario'];
 		$_SESSION['usuario_nome'] = $row['usuario_nome'];
