@@ -22,7 +22,7 @@
 								FROM sites 
 								INNER JOIN sites_css ON sites_css.cd_site_css = sites.cd_site_css
 								WHERE cd_site = " . $cd_site);
-    while($row = mysqli_fetch_array($sql)){
+    while($row = mysqli_fetch_assoc($sql)){
         $status = $row['site_status'];
         $googleAnalytics = $row['site_google_analytics'];
         $nomeSite = $row['site_nome_exibicao'];
@@ -63,7 +63,7 @@
     $querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_site = " . $cd_site;
     $resultado = mysqli_query($conn, $querySelecionaPorCodigo);
     $imagens = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
-    while($row = mysqli_fetch_array($resultado)){
+    while($row = mysqli_fetch_assoc($resultado)){
        $imagens[$row['cd_imagem_setor']][] = $row;
     }
 
@@ -79,7 +79,7 @@
     $sql = "SELECT * FROM sites_area_atuacao WHERE cd_site = " . $cd_site;
     $resultado = mysqli_query($conn, $sql);
     $areasAtuacao = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
-    while($row = mysqli_fetch_array($resultado)){
+    while($row = mysqli_fetch_assoc($resultado)){
         $areasAtuacao[$row['site_area_atuacao_coluna']][] = $row;
     }
 

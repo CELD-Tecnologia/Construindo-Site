@@ -11,7 +11,7 @@
 
 	$cd_site = 0;
 	$sql = mysqli_query($conn, "SELECT func_criar_novo_site({$site_modelo}, '{$dominio}', '{$dtCriacao}', '{$nome}', {$cd_usuario}) AS cd_site") or die();
-	while($row = mysqli_fetch_array($sql)){
+	while($row = mysqli_fetch_assoc($sql)){
 		$cd_site = $row['cd_site'];
 	}
 

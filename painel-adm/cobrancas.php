@@ -2,18 +2,30 @@
 	require("_php/validacao-geral.php");
 
     $sites = array();
-	$where = "1";
+	$where = "cobrancas.cobranca_status = 0";
 
 	if($_SESSION['usuario_tipo'] != '2') { 
-		$where .= " AND cd_usuario = {$_SESSION['cd_usuario']}";
+		$where .= " AND usuarios.cd_usuario = {$_SESSION['cd_usuario']}";
 	}
 
 	$primeiroNome = explode(" ", $_SESSION['usuario_nome'])[0];
 
-	$sql = mysqli_query($conn, "SELECT site_data_criacao, cd_site, site_status, site_nome_exibicao, site_dominio, cd_template FROM sites WHERE {$where}") or die();
+	$query = "	SELECT cobrancas.*, sites.site_nome_exibicao
+				FROM cobrancas 
+				INNER JOIN sites ON sites.cd_site = cobrancas.cd_site
+				INNER JOIN usuarios ON usuarios.cd_usuario = sites.cd_usuario
+				WHERE {$where}";
+
+	$sql = mysqli_query($conn, $query) or die();
     while ($row = mysqli_fetch_assoc($sql)) {
-        $sites[] = $row;
+        $cobrancasRows[] = $row;
     }
+
+	$cobrancas = array();
+	foreach($cobrancasRows as $cobranca) {
+		$cobrancas[$cobranca['site_nome_exibicao']][] = $cobranca;
+	}
+
 ?>
 
 <html lang="pt-br">
@@ -113,7 +125,7 @@
 					<div class="">
 						<div class="page-title">
 							<div class="title_left">
-								<h3>Sites gerenciados</h3>
+								<h3>Cobranças em aberto</h3>
 							</div>					  
 						</div>
             
@@ -122,38 +134,28 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="x_panel">
-									<div class="col-md-12">
-										<a href="#" data-toggle="modal" data-target="#novo-site" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Novo Site </a>
-									</div>
 									
 									<div class="x_content">										
-										<p>Aqui você pode editar e visualizar os seus sites</p>
 										<table class="table table-striped sites">
 											<thead>
 												<tr>
-													<th style="width: 10%">Código</th>
-													<th style="width: 40%">Site</th>
-													<th style="width: 50%">Ações</th>
+													<th style="width: 10%"></th>
+													<th style="width: 10%">Referência</th>
+													<th style="width: 40%">Emissao</th>
+													<th style="width: 40%">Valor</th>
 												</tr>
 											</thead>
 											<tbody>
-												<?php foreach ($sites as $site): ?>
-													<tr>
-														<td><?php echo $site['cd_site']; ?></td>
-														<td>
-															<a><?php echo $site['site_nome_exibicao']; ?></a>
-															<br />
-															<small>Criado em <?php echo date('d/m/Y', strtotime($site['site_data_criacao'])) ; ?></small>
-														</td>
-														<td>
-															<a target="_blank" href="http://<?php echo $site['site_dominio']; ?>.com.br" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Ver Site </a>
-															<a target="_blank" href="../preview/<?php echo $site['cd_template']; ?>?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-external-link"></i> Preview </a>
-															<a target="_blank" href="../painel-adm/_edicao/index.php?cd_site=<?php echo $site['cd_site']; ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                                                            <?php if($site['site_status'] == '0' || $site['site_status'] == '5'): ?>
-                                                                <a href="_php/excluirSite.php?cd_site=<?php echo $site['cd_site']; ?>"  class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Excluir </a>
-                                                            <?php endif; ?>
-														</td>
-													</tr>
+												<?php foreach ($cobrancas as $site => $siteCobranca): ?>
+													<tr><td colspan="4"><?php echo $site; ?></td></tr>
+													<?php foreach ($siteCobranca as $cobranca): ?>
+														<tr>
+															<td><input type="checkbox" id="cd_cobranca[<?php echo $cobranca['cd_cobranca']; ?>]" name="cd_cobranca[<?php echo $cobranca['cd_cobranca']; ?>]"></td>
+															<td><?php echo $cobranca['cobranca_referencia_mes']; ?></td>
+															<td>Emitido em <?php echo date('d/m/Y', strtotime($cobranca['cobranca_data_emissao'])) ; ?></td>
+															<td><?php echo $cobranca['cobranca_valor']; ?></td>
+														</tr>
+													<?php endforeach; ?>
 												<?php endforeach; ?>
 											</tbody>
 										</table>

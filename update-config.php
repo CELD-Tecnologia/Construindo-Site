@@ -26,7 +26,7 @@
 	mysqli_query($conn, 'SET character_set_results=utf8');
 	
 	$sql = mysqli_query($conn, "SELECT cd_update, update_php FROM updates ORDER BY cd_update DESC LIMIT 1") or die();
-	while($row = mysqli_fetch_array($sql)){
+	while($row = mysqli_fetch_assoc($sql)){
 		$cd_update = $row['cd_update'];
 		$update_php = $row['update_php'];
 	}

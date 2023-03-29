@@ -18,7 +18,7 @@
     } else {
         $cd_usuario = 0;
         $sql = mysqli_query($conn, "SELECT cd_usuario FROM usuarios WHERE usuario_email = '" . $usuario_email . "'") or die();
-        while($row = mysqli_fetch_array($sql)){
+        while($row = mysqli_fetch_assoc($sql)){
             $cd_usuario = $row['cd_usuario'];
         }
 

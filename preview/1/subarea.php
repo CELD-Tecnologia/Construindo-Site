@@ -22,7 +22,7 @@
 								FROM sites 
 								INNER JOIN sites_css ON sites_css.cd_site_css = sites.cd_site_css
 								WHERE cd_site = " . $cd_site);
-    while($row = mysqli_fetch_array($sql)){
+    while($row = mysqli_fetch_assoc($sql)){
 		$titulo = $row['site_titulo'];
 		$descricao = $row['site_descricao'];
 		$keyword = $row['site_keyword'];
@@ -36,7 +36,7 @@
 	}
 
 	$sql = mysqli_query($conn, "SELECT sites_area_atuacao.* FROM sites_area_atuacao WHERE cd_site_area_atuacao = " . $idAreaAtuacao);
-    while($row = mysqli_fetch_array($sql)){
+    while($row = mysqli_fetch_assoc($sql)){
 		$siteAreaAtuacao = $row;
 	}
 	
@@ -48,7 +48,7 @@
 	$querySelecionaPorCodigo = "SELECT * FROM imagens WHERE cd_imagem_setor IN (0, 1) AND cd_site = " . $cd_site;
     $resultado = mysqli_query($conn, $querySelecionaPorCodigo);
     $imagens = array(); //FAZER O FAVOR DE ARRUMAR ESTA PORCARIA DE CÓDIGO KKKKK
-    while($row = mysqli_fetch_array($resultado)){
+    while($row = mysqli_fetch_assoc($resultado)){
        $imagens[$row['cd_imagem_setor']][] = $row;
     }
 
@@ -58,7 +58,7 @@
 	$sql = "SELECT * FROM sites_area_atuacao_sub WHERE cd_site_area_atuacao = " . $idAreaAtuacao;
     $resultado = mysqli_query($conn, $sql);
     $areasAtuacaoSub = array();
-    while($row = mysqli_fetch_array($resultado)){
+    while($row = mysqli_fetch_assoc($resultado)){
         $areasAtuacaoSub[$row['site_area_atuacao_sub_coluna']][] = $row;
     }
 
